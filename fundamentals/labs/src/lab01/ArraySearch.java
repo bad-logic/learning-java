@@ -1,7 +1,5 @@
 package lab01;
 
-import static org.junit.Assert.assertTrue;
-
 public class ArraySearch {
 	
 	public static int search(int arr[], int target) {
@@ -16,7 +14,7 @@ public class ArraySearch {
 	}
 	
 	public static void main(String[] args) {
-		
+		System.out.println("Array Search");
 	}
 
 }
