@@ -1,0 +1,22 @@
+package lab01;
+
+import static org.junit.Assert.assertTrue;
+
+public class ArraySearch {
+	
+	public static int search(int arr[], int target) {
+		int searchIndex = -1;
+		for(int i=0;i<arr.length;++i) {
+			if(arr[i] == target) {
+				searchIndex = i;
+				break;
+			}
+		}
+		return searchIndex;
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}
