@@ -1,6 +1,6 @@
 ### Eclipse
 
-##### Loading individual project in
+##### Loading individual project
 
 - Open Eclipse in your desired workspace
 - File > Open projects from file system
