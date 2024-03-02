@@ -3,9 +3,9 @@
 // 1. exact match by type
 // 2. larger primitive type
 // 3. AutoBoxed type
-// 4. vararg
+// 4. var arg
 
-package fundamentals.class_practise.overloading;
+package fundamentals.practise.classes;
 
 public class Overloading{
 

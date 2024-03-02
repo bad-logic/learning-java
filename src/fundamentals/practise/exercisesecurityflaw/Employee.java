@@ -1,5 +1,5 @@
 
-package fundamentals.class_practise.exercisesecurityflaw;
+package fundamentals.practise.exercisesecurityflaw;
 
 
 public class Employee {

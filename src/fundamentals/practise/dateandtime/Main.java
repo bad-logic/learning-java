@@ -1,7 +1,6 @@
-package fundamentals.class_practise.dateandtime;
+package fundamentals.practise.dateandtime;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Main {
@@ -16,6 +15,7 @@ public class Main {
     }
 
     public static Date dateFromLocalDate(LocalDate localDate) {
+
 
         // GregorianCalendar cal =  new GregorianCalendar(localDate.getYear(),localDate.getMonth().getValue() - 1,localDate.getDayOfMonth());
         return new Date(localDate.getYear(),localDate.getMonth().getValue() - 1,localDate.getDayOfMonth());

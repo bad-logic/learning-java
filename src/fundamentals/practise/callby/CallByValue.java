@@ -1,5 +1,5 @@
 
-package fundamentals.class_practise.callby;
+package fundamentals.practise.callby;
 
 public class CallByValue {
     Employee e1 = new Employee("Tom", 100000);
@@ -23,11 +23,14 @@ public class CallByValue {
     public static void main(String[] args) {
         CallByValue cbv = new CallByValue();
         cbv.change1(cbv.e1, cbv.e2);
+        System.out.println("e1: " + cbv.e1 + " e2: " + cbv.e2);
 
 		cbv = new CallByValue();
 		cbv.change2(cbv.e1, cbv.e2);
+        System.out.println("e1: " + cbv.e1 + " e2: " + cbv.e2);
+
 		cbv = new CallByValue();
 		cbv.change3(cbv.e1, cbv.e2);
-
+        System.out.println("e1: " + cbv.e1 + " e2: " + cbv.e2);
     }
 }
