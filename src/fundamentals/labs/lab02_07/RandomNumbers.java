@@ -1,4 +1,4 @@
-package lab02_07;
+package fundamentals.labs.lab02_07;
 
 
 import java.util.*;

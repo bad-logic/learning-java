@@ -1,4 +1,4 @@
-package lab02_01;
+package fundamentals.labs.lab02_01;
 
 
 public class Address {

@@ -1,4 +1,4 @@
-package lab03_03;
+package fundamentals.labs.lab03_03;
 
 public class MyStringList {
 	private String[] strArray;

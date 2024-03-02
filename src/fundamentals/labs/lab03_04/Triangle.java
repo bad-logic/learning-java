@@ -1,4 +1,4 @@
-package lab03_04;
+package fundamentals.labs.lab03_04;
 
 public final class Triangle {
 	

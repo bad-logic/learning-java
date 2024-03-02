@@ -1,4 +1,4 @@
-package lab01;
+package fundamentals.labs.lab01;
 
 public class ArraySearch {
 	

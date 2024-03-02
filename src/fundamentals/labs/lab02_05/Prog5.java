@@ -1,4 +1,4 @@
-package lab02_05;
+package fundamentals.labs.lab02_05;
 
 import java.util.Scanner;
 

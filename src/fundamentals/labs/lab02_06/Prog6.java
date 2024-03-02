@@ -1,4 +1,4 @@
-package lab02_06;
+package fundamentals.labs.lab02_06;
 
 import java.util.Arrays;
 
