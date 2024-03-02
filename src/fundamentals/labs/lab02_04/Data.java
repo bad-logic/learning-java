@@ -1,4 +1,4 @@
-package lab02_04;
+package fundamentals.labs.lab02_04;
 
 public class Data {
 	//column names:   productId, name,numInStock,provider,pricePerUnit

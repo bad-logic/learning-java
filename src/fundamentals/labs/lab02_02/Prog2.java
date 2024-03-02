@@ -1,4 +1,4 @@
-package lab02_02;
+package fundamentals.labs.lab02_02;
 
 public class Prog2 {
 	

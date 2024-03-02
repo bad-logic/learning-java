@@ -1,14 +1,14 @@
-package lab02_08;
+package fundamentals.labs.lab02_08;
 
 public class Prog2_8 {
 	
 	static int min(int[] arrOfInts) {
 		int min = Integer.MAX_VALUE;
-		for(int i=0;i<arrOfInts.length;i++) {
-			if(arrOfInts[i] < min) {
-				min = arrOfInts[i];
-			}
-		}
+        for (int arrOfInt : arrOfInts) {
+            if (arrOfInt < min) {
+                min = arrOfInt;
+            }
+        }
 		return min;
 	}
 	

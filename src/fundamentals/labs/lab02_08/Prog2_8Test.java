@@ -1,4 +1,4 @@
-package lab02_08;
+package fundamentals.labs.lab02_08;
 
 import org.junit.Test;
 

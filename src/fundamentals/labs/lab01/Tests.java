@@ -1,4 +1,4 @@
-package lab01;
+package fundamentals.labs.lab01;
 
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;

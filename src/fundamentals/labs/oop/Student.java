@@ -1,4 +1,4 @@
-package oop;
+package fundamentals.labs.oop;
 
 public class Student {
 	private String[] courses = new String[2];
