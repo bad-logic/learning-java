@@ -1,5 +1,5 @@
 
-package fundamentals.class_practise.static_;
+package fundamentals.practise.static_;
 
 class StaticKeyword{
 

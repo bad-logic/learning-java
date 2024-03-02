@@ -1,4 +1,4 @@
-package fundamentals.class_practise.exercisesecurityflaw;
+package fundamentals.practise.exercisesecurityflaw;
 
 public class Company {
     private String address;

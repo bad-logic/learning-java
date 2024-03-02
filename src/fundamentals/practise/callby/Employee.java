@@ -1,5 +1,5 @@
 
-package fundamentals.class_practise.callby;
+package fundamentals.practise.callby;
 
 public class Employee {
     private String name;
