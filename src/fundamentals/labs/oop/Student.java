@@ -72,7 +72,7 @@ public class Student {
 		
 		return output;
 	}
-	
+
 	public static void main(String[] args) {
 		Student st = new Student(2324324,"Roshan");
 		System.out.println("Adding FPP and MPP");
@@ -83,7 +83,7 @@ public class Student {
 		st.addCourse("WAP");
 		st.addCourse("DBMS");
 		System.out.println(st.toString());
-		
+
 		System.out.println("Removing 2nd index: "+st.removeCourse(2));
 		System.out.println(st.toString());
 		System.out.println("Adding SYSTEM DESIGN and SOFTWARE DEVELOPMENT");
