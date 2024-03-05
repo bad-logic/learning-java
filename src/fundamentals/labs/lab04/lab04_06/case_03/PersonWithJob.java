@@ -30,8 +30,7 @@ public class PersonWithJob {
         if(this.getClass() != a.getClass()) return false;
 
         PersonWithJob p = (PersonWithJob) a;
-        return this.person.getName().equals(p.person.getName()) &&
-                this.person.getDateOfBirth().equals(p.person.getDateOfBirth()) &&
+        return this.person.equals(p.person) &&
                 this.salary == p.salary;
     }
 }
