@@ -10,6 +10,7 @@ public class Test {
 								 new Circle(3)};
 		//compute areas
 		for(ClosedCurve cc : objects) {
+			// using java reflection api to get the class name values
 			String className = cc.getClass().getSimpleName();
 			System.out.println("The area of this " + className + " is " + cc.computeArea());
 		}
