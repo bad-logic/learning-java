@@ -12,7 +12,7 @@ public final class Square extends ClosedCurve implements Polygon {
 	}
 
 	public double[] getArrayOfSides(){
-		return new double[]{ this.side, this.side, this.side, this.side };
+		return new double[] { this.side, this.side, this.side, this.side };
 	}
 
 

@@ -80,6 +80,6 @@ public final class Triangle extends ClosedCurve implements Polygon {
 	}
 
 	public double[] getArrayOfSides(){
-		return new double[] { side1, side2, side3};
+		return new double[] { side1, side2, side3 };
 	}
 }

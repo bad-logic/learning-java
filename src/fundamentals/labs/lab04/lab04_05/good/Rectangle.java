@@ -16,6 +16,6 @@ public class Rectangle extends ClosedCurve implements Polygon {
     }
 
     public double[] getArrayOfSides(){
-        return new double[]{ width, width, length, length };
+        return new double[] { width, width, length, length };
     }
 }
