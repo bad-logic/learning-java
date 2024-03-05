@@ -2,7 +2,7 @@ package fundamentals.labs.lab04.lab04_03.employeeinfo;
 
 public class SavingsAccount extends  Account {
 
-    final private double monthlyInterestRate = 0.25;
+    final private double MONTHLY_INTEREST_RATE = 0.25;
     SavingsAccount(Employee emp, double balance) {
         super(emp,balance);
     }
@@ -14,7 +14,7 @@ public class SavingsAccount extends  Account {
     @Override
     public double getBalance() {
         double baseBalance = super.getBalance();
-        double interest = (monthlyInterestRate / 100) * baseBalance;
+        double interest = (MONTHLY_INTEREST_RATE / 100) * baseBalance;
         return baseBalance + interest;
     }
 
