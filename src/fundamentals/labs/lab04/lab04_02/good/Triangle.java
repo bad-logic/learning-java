@@ -1,4 +1,4 @@
-package fundamentals.labs.lab04.lab04_02;
+package fundamentals.labs.lab04.lab04_02.good;
 
 import java.util.Arrays;
 
