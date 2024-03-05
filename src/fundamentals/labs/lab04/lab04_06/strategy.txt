@@ -1,0 +1,14 @@
+
+
+// OVERRIDING EQUALS METHOD
+
+//Suppose B is a subclass of A.
+
+// If it is acceptable for B to use the same equals method as used in A,
+// then the best strategy is the instanceof strategy
+
+// If two different equals methods are required, two strategies are possible
+// Use the same classes strategy, but declare subclass B to be final
+// Use composition instead of inheritance – this will always work as long as the inheritance
+//   relationship between B and A is not needed (e.g. for polymorphism)
+
