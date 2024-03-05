@@ -1,6 +1,6 @@
-package fundamentals.labs.lab04.lab04_02;
+package fundamentals.labs.lab04.lab04_04;
 
-import fundamentals.labs.lab04.lab04_02.good.*;
+import fundamentals.labs.lab04.lab04_04.good.*;
 
 public class Test {
 	

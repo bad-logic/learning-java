@@ -1,4 +1,4 @@
-package fundamentals.labs.lab04.lab04_02;
+package fundamentals.labs.lab04.lab04_02.good;
 
 public class Rectangle extends ClosedCurve{
     private final double length;
@@ -8,7 +8,7 @@ public class Rectangle extends ClosedCurve{
         this.length = length;
         this.width = width;
     }
-    double computeArea() {
+    public double computeArea() {
         return this.length * this.width;
     }
 }
