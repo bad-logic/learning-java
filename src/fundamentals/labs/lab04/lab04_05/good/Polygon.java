@@ -10,11 +10,12 @@ public interface Polygon {
         return sum;
     }
     default double computePerimeter(){
-        double perimeter = 0;
-        for(double side: getArrayOfSides()){
-            perimeter += side;
-        }
-        return perimeter;
+        return Polygon.sum(getArrayOfSides());
+//        double perimeter = 0;
+//        for(double side: getArrayOfSides()){
+//            perimeter += side;
+//        }
+//        return perimeter;
     }
 
 }

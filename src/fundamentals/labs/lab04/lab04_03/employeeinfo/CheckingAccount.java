@@ -1,7 +1,7 @@
 package fundamentals.labs.lab04.lab04_03.employeeinfo;
 
 public class CheckingAccount extends Account{
-    private final int monthlyServiceCharge = 5;
+    private final int MONTHLY_SERVICE_CHARGE = 5;
 
     CheckingAccount(Employee emp, double balance) {
        super(emp,balance);
@@ -14,7 +14,7 @@ public class CheckingAccount extends Account{
     @Override
     public double getBalance() {
         double baseBalance = super.getBalance();
-        return baseBalance - monthlyServiceCharge;
+        return baseBalance - MONTHLY_SERVICE_CHARGE;
     }
 
     @Override
