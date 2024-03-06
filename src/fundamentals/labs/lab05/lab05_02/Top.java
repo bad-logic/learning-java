@@ -6,17 +6,17 @@ public class Top {
     Middle.Bottom midbot;
 
     Top(){
-        mid = new Middle();
-        midbot = mid.new Bottom();
+        this.mid = new Middle();
+        this.midbot = mid.new Bottom();
     }
 
     int readBottom() {
-        return midbot.b;
+        return this.midbot.b;
     }
     class Middle {
         int m = 2;
         int addTopAndBottom() {
-            return Top.this.t + midbot.b;
+            return Top.this.t + Top.this.midbot.b;
         }
         class Bottom {
             int b = 3;
