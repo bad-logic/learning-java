@@ -61,13 +61,13 @@ public class Employee {
     }
     public void deposit(AccountType acctType, double amt){
         switch (acctType){
-            case AccountType.CHECKING:
+            case CHECKING:
                 this.checkingAcct.makeDeposit(amt);
                 break;
-            case AccountType.SAVINGS:
+            case SAVINGS:
                 this.savingsAcct.makeDeposit(amt);
                 break;
-            case AccountType.RETIREMENT:
+            case RETIREMENT:
                 this.retirementAcct.makeDeposit(amt);
                 break;
             default:
@@ -77,13 +77,13 @@ public class Employee {
     public boolean withdraw(AccountType acctType, double amt){
         boolean success = false;
         switch (acctType){
-            case AccountType.CHECKING:
+            case CHECKING:
                 success = this.checkingAcct.makeWithdrawal(amt);
                 break;
-            case AccountType.SAVINGS:
+            case SAVINGS:
                 success = this.savingsAcct.makeWithdrawal(amt);
                 break;
-            case AccountType.RETIREMENT:
+            case RETIREMENT:
                 success = this.retirementAcct.makeWithdrawal(amt);
                 break;
             default:

@@ -7,7 +7,7 @@ public class Top {
 
     Top(){
         this.mid = new Middle();
-        this.midbot = mid.new Bottom();
+        this.midbot = this.mid.new Bottom();
     }
 
     int readBottom() {
