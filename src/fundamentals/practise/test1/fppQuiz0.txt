@@ -1,0 +1,165 @@
+1.
+class MyClass{
+    System.out.println("hello");
+}
+
+Answer: b. Compiler error
+
+=============================================================================
+
+2.
+class MyClass {
+    public static void main(String[] args) {
+        myMethod();
+    }
+    public void myMethod() {
+        System.out.println("hello");
+    }
+}
+
+Answer: b. Compiler error
+
+=============================================================================
+
+3.
+class MyClass {
+    public static void main(String[] args) {
+        MyClass m = new MyClass();
+        m.myMethod();
+    }
+    private void myMethod() {
+        System.out.println("hello");
+    }
+}
+
+Answer: a. Outputs "hello" to the console
+
+=============================================================================
+
+4.
+class MyClass {
+    public static void main(String[] args) {
+        AnotherClass a = new AnotherClass(new MyClass());
+    }
+    private void myMethod() {
+        System.out.println("hello");
+    }
+}
+
+class AnotherClass {
+    AnotherClass(MyClass m) {
+        m.myMethod();
+    }
+}
+
+Answer: b. Compiler error
+
+=============================================================================
+
+5.
+class MyClass {
+    public static void main(String[] args) {
+        AnotherClass a = new AnotherClass(new MyClass());
+    }
+    private void myMethod() {
+        System.out.println("hello");
+    }
+}
+class AnotherClass {
+    AnotherClass(MyClass m) {
+        myMethod();
+    }
+}
+
+Answer: b. Compiler error
+
+=============================================================================
+
+6.
+class MyClass {
+    public static void main(String[] args) {
+        AnotherClass a = new AnotherClass(new MyClass());
+        a.anotherMethod();
+    }
+    void myMethod() {
+        System.out.println("hello");
+    }
+}
+class AnotherClass {
+    MyClass m;
+    AnotherClass(MyClass m) {
+        this.m = m;
+        anotherMethod();
+    }
+    void anotherMethod() {
+        m.myMethod();
+    }
+}
+
+Answer: b. Outputs "hello" twice to the console
+
+=============================================================================
+
+7.
+class MyClass {
+    public static void main(String[] args) {
+        AnotherClass a = new AnotherClass(new MyClass());
+        a.anotherMethod();
+    }
+    void myMethod() {
+        System.out.println("hello");
+        a.anotherMethod();
+    }
+}
+class AnotherClass {
+    MyClass m;
+    AnotherClass(MyClass m) {
+        this.m = m;
+    }
+    void anotherMethod() {
+        System.out.println("hello");
+        m.myMethod();
+    }
+}
+
+Answer: b. Compiler error // a.anotherMethod => a is not reachable
+
+=============================================================================
+
+8.
+class MyClass2 {
+    AnotherClass a;
+    public static void main(String[] args) {
+        int n = 0;
+        if(args[0] != null) {
+            n = Integer.parseInt(args[0]);
+        }
+        MyClass2 m = new MyClass2();
+        m.a = new AnotherClass(m);
+        m.a.anotherMethod(n);
+    }
+    void myMethod(int k) {
+        if(k == 0 || k == 1) {
+            System.out.println("hello");
+            return;
+        }
+        a.anotherMethod(--k);
+    }
+}
+class AnotherClass {
+    MyClass2 m;
+    AnotherClass(MyClass2 m) {
+        this.m = m;
+    }
+    void anotherMethod(int k){
+        m.myMethod(--k);
+    }
+}
+
+Answer: a. Outputs "hello" to the console
+
+=============================================================================
+
+9.
+Answer: c. "Times through the loop: n" is printed to the console for
+        some n > 1.
