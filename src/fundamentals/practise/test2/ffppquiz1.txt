@@ -1,0 +1,181 @@
+1.
+class MyClass {
+    static int amount = 1;
+    public static void main(String[] args) {
+        System.out.println(this.amount);
+    }
+}
+
+Answer: a. Compiler error // no this inside static method
+
+2.
+class MyClass extends MySuperClass {
+    public static void main(String[] args) {
+        MySuperClass cl = new MyClass();
+        System.out.println(cl.getType());
+    }
+    public int getType() {
+        return 3;
+    }
+}
+class MySuperClass {
+    public int getType() {
+        return 2;
+    }
+}
+
+Answer: d. Outputs 3 to the console
+
+3.
+class MyClass extends MySuperClass {
+    public static void main(String[] args) {
+        MySuperClass cl = new MySuperClass();
+        System.out.println(cl.getType());
+    }
+    public int getType() {
+        return 3;
+    }
+}
+class MySuperClass {
+    public int getType() {
+        return 2;
+    }
+}
+
+Answer: c. Outputs 2 to the console
+
+4.
+class MyClass {
+    public static void main(String[] args) {
+        new MyClass();
+    }
+    MyClass() {
+        System.out.println(value);
+    }
+    class MyInnerClass {
+        private int value = 3;
+    }
+}
+
+Answer: a. Compiler error
+
+5.
+class MyClass {
+    public static void main(String[] args) {
+        new MyClass();
+    }
+    private int value = 3;
+    MyClass() {
+        MyInnerClass c = new MyInnerClass();
+        System.out.println(c.compute());
+    }
+    class MyInnerClass {
+        private int compute() {
+            return value;
+        }
+    }
+}
+
+Answer: c. Outputs 3 to the console
+
+6.
+class MyClass {
+    public static void main(String[] args) {
+        new MyClass();
+    }
+    private int value = 3;
+    MyClass() {
+        MyNestedClass c = new MyNestedClass();
+        System.out.println(c.compute());
+    }
+    static class MyNestedClass {
+        private int compute() {
+            return value;
+        }
+    }
+}
+
+Answer: a. Compiler error // static class (static member) trying to access instance variable
+
+7.
+
+class MyClass {
+    public static void main(String[] args) {
+        MyClass cl = new MySubClass();
+        System.out.println(cl.compute());
+    }
+    private int value = 3;
+    public int compute() {
+        return value;
+    }
+}
+class MySubClass extends MyClass {
+    MySubClass() {}
+    public int compute() {
+        return (new MyInnerClass()).compute();
+    }
+    class MyInnerClass {
+        private int compute() {
+            return value*value; // value not accessible
+        }
+    }
+}
+
+Answer: a. Compiler error
+
+
+8.
+class TheClass {
+     TheClass(){
+         TheSubclass sub = new TheSubclass();
+         System.out.println("The Class constructor");
+     }
+    public static void main(String[] args){
+        new TheSubclass();
+    }
+}
+class TheSubclass extends TheClass {
+     TheSubclass() {
+        System.out.println("The Subclass constructor");
+     }
+}
+
+Answer: d. Stack overflow exception
+
+9.
+public class TheClass {
+    private int value = 5;
+    public int getValue() {
+        return value;
+    }
+    private static TheSubclass clsub;
+    public TheClass() {}
+    public class TheInnerClass {
+        public int evaluate() {
+            return value;
+        }
+    }
+    void run() {
+        TheClass.TheInnerClass inner = clsub.new TheSubInner();
+        System.out.println(inner.evaluate());
+    }
+    public static void main(String[] args){
+        clsub = new TheSubclass();
+        clsub.run();
+    }
+}
+class TheSubclass extends TheClass {
+    private int value = getValue()+1;
+    public class TheSubInner extends TheClass.TheInnerClass {
+        public int evaluate() {
+            return super.evaluate()+value;
+        }
+    }
+    TheSubclass() {}
+}
+
+Answer: c. Outputs 11 to console
+
+
+10.
+Answer: D. A string is printed to the console giving information about a Manager object
