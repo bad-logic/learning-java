@@ -5,9 +5,9 @@ import java.util.GregorianCalendar;
 
 public class Employee {
 
-    private String name;
-    private Date hireDate;
-    private int salary;
+    final private String name;
+    final private Date hireDate;
+    final private int salary;
 
     public Employee(String name, int salary, int year, int month, int day){
         this.name = name;

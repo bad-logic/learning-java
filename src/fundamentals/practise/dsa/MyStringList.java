@@ -3,8 +3,8 @@ package fundamentals.practise.dsa;
 import java.util.Arrays;
 
 public class MyStringList {
-   private final int INITIAL_LENGTH = 16;
-   private String[] strArray;
+   final private int INITIAL_LENGTH = 16;
+   final private String[] strArray;
    private int size;
 
    public MyStringList(){

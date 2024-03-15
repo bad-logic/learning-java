@@ -1,7 +1,6 @@
 package fundamentals.labs.lab08.lab08_03;
 
 import java.util.Comparator;
-import java.util.Date;
 
 public class SalaryComparator implements Comparator<Employee> {
 
@@ -14,7 +13,7 @@ public class SalaryComparator implements Comparator<Employee> {
         int nameComparison = e1.getName().compareTo(e2.getName());
         if( nameComparison != 0){
             return nameComparison;
-        };
+        }
 
         return e1.getHireDate().compareTo(e2.getHireDate());
 

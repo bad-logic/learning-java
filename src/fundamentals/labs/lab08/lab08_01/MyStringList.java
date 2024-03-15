@@ -106,8 +106,6 @@ public class MyStringList {
     }
 
 
-    /********* end sorting methods ********/
-
     /******** binary search methods ********/
 
     //search a sorted array
