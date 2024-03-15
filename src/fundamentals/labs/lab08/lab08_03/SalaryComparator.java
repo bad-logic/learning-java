@@ -10,7 +10,13 @@ public class SalaryComparator implements Comparator<Employee> {
         if (salaryComparison != 0) {
             return salaryComparison;
         }
-        // If salaries are equal, compare by name
-        return e1.getName().compareTo(e2.getName());
+
+        int nameComparison = e1.getName().compareTo(e2.getName());
+        if( nameComparison != 0){
+            return nameComparison;
+        };
+
+        return e1.getHireDate().compareTo(e2.getHireDate());
+
     }
 }
