@@ -18,4 +18,11 @@ public class PowerTest {
         double result = new Exponential().power(2.7,7);
         assertTrue( Double.valueOf(expectation).equals(result));
     }
+
+    @Test
+    public void TestingDouble2PowerNegative(){
+        double expectation = Math.pow(-2.7,7);
+        double result = new Exponential().power(-2.7,7);
+        assertTrue( Double.valueOf(expectation).equals(result));
+    }
 }
