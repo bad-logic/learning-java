@@ -11,7 +11,12 @@ public class HireDateComparator implements Comparator<Employee> {
             return hireDateComparison;
         }
         // If hire dates are equal, compare by name
-        return e1.getName().compareTo(e2.getName());
+        int nameComparison = e1.getName().compareTo(e2.getName());
+        if( nameComparison != 0){
+            return nameComparison;
+        };
+
+        return Integer.compare(e1.getSalary(), e2.getSalary());
     }
 
 }
