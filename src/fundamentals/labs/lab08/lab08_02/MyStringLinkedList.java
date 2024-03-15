@@ -77,7 +77,7 @@ public class MyStringLinkedList {
     }
 
     boolean remove(String data){
-        if(data == null) return false;
+        if(data == null || header == null) return false;
         Node dataNode = header.next;
         while(dataNode != null){
             if(dataNode.value.equals(data)){

@@ -17,15 +17,15 @@ public class EmployeeSort {
         List<Employee> empList = Arrays.asList(empArray);
         NameComparator nameComp =
                 new NameComparator();
-        System.out.println("Comparing by name");
+        System.out.println("Sorting by name");
         Collections.sort(empList, nameComp);
         System.out.println(empList);
 
-        System.out.println("Comparing by salary");
+        System.out.println("Sorting by salary");
         Collections.sort(empList, new SalaryComparator());
         System.out.println(empList);
 
-        System.out.println("Comparing by hire date");
+        System.out.println("Sorting by hire date");
         Collections.sort(empList, new HireDateComparator());
         System.out.println(empList);
     }

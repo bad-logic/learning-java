@@ -6,8 +6,11 @@ import java.util.Date;
 public class SalaryComparator implements Comparator<Employee> {
 
     public int compare(Employee e1, Employee e2) {
-        int salary1 = e1.getSalary();
-        int salary2 = e2.getSalary();
-        return Integer.compare(salary1,salary2);
+        int salaryComparison = Integer.compare(e1.getSalary(), e2.getSalary());
+        if (salaryComparison != 0) {
+            return salaryComparison;
+        }
+        // If salaries are equal, compare by name
+        return e1.getName().compareTo(e2.getName());
     }
 }
