@@ -2,8 +2,8 @@ package fundamentals.practise.list.forEach;
 
 public class Employee {
 
-    private String name;
-    private int salary;
+    final private String name;
+    final private int salary;
     public Employee(String name, int sal) {
         this.name = name;
         this.salary = sal;

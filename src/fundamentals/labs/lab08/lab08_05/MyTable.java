@@ -1,7 +1,7 @@
 package fundamentals.labs.lab08.lab08_05;
 
 public class MyTable {
-    private Entry[] entries = new Entry[26];
+    final private Entry[] entries = new Entry[26];
     private final int base = 'a';
 
     //returns the String that is matched with char c in the table
@@ -26,9 +26,9 @@ public class MyTable {
     }
 
 
-    private class Entry {
-        private String str;
-        private char ch;
+    private static  class Entry {
+        final private String str;
+        final private char ch;
         Entry(String str, char ch){
             this.str = str;
             this.ch = ch;
