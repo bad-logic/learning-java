@@ -16,11 +16,13 @@ public class MyTable {
     }
 
     public String toString() {
-        String output = "";
-        for(Entry entry: entries){
-            output += entry!=null ? entry.toString() + "\n" : "";
+        StringBuilder sb = new StringBuilder();
+        for (Entry entry : entries) {
+            if (entry != null) {
+                sb.append(entry).append("\n");
+            }
         }
-        return output;
+        return sb.toString();
     }
 
 
