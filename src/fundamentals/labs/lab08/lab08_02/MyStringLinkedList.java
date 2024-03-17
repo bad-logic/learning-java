@@ -83,7 +83,7 @@ public class MyStringLinkedList {
             if(dataNode.value.equals(data)){
                 // remove this node
                 Node prevNode = dataNode.previous;
-                Node nextNode = dataNode.next;
+                Node nextNode = dataNode.next != null ? dataNode.next : null;
                 prevNode.next = nextNode;
                 nextNode.previous = prevNode;
                 dataNode.previous = null;
@@ -93,7 +93,6 @@ public class MyStringLinkedList {
             }
             dataNode = dataNode.next;
         }
-
         return false;
     }
 

@@ -15,7 +15,7 @@ public class Exponential {
         if( n < 0 ){
             throw new IllegalArgumentException("power should be greater than zero (0)");
         }
-        return  pow( x, n );
+        return pow( x, n );
     }
 
     public static void main(String[] args){
