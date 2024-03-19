@@ -35,9 +35,7 @@ public class EmployeeBst {
     private boolean find(Employee x, Node n){
         if(n == null) return false;
         if(n != null && n.element.equals(x)) return true;
-        return (this.comparator.compare(x,n.element) < 0) ?
-                find(x,n.left) :
-                find(x,n.right);
+        return (this.comparator.compare(x,n.element) < 0) ? find(x,n.left) : find(x,n.right);
     }
 
     public boolean find(Employee x) {
@@ -188,7 +186,7 @@ public class EmployeeBst {
         bst.insert(new Employee("Richard", 80000, 1986,3,23));
         bst.printTree();
 
-        BTreePrinter.printNode(bst.root);
+//        BTreePrinter.printNode(bst.root);
     }
 
 }
