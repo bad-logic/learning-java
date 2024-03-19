@@ -1,0 +1,29 @@
+part I:
+
+1. answer: d
+
+2. T
+
+3. T
+
+4. F
+
+5. b
+
+6.
+Answer:
+
+explanation: when test is called first test method throws an error which is caught by the generic
+exception catch block inside the test method. and prints the exception message concatenated with
+another string. and then finally block will be executed, after which the statement to print will be
+executed, since we are neither returning nor throwing exception from the catch block. after the print
+statement the control is returned to the main function. since no error are caught in the main function
+the catch block will not be executed.
+
+output:
+Exception thrown in test method and caught by Exception!
+In finally block!
+In test method!
+
+7. b
+
