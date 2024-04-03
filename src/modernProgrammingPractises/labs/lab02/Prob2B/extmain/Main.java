@@ -1,13 +1,14 @@
 package modernProgrammingPractises.labs.lab02.Prob2B.extmain;
 
 import modernProgrammingPractises.labs.lab02.Prob2B.Order;
+import modernProgrammingPractises.labs.lab02.Prob2B.OrderFactory;
 
 public class Main {
     public static void main(String[] args){
-        Order order = new Order(1, 2024,2,24);
-        order.addOderLines(2, 22, 48);
-        order.addOderLines(4, 27, 49);
-        order.addOderLines(6, 30, 65);
+        Order order = OrderFactory.createOrder();
+        order.addOrderLines(2, 22, 48);
+        order.addOrderLines(4, 27, 49);
+        order.addOrderLines(6, 30, 65);
 
         System.out.println(order);
     }

@@ -11,14 +11,18 @@ public class OrderLine {
        this.quantity = quantity;
    }
 
-   public int getOrderlineNum(){
-       return orderlineNum;
+   public int getOrderLineNum(){
+       return this.orderlineNum;
    }
    public double getPrice(){
-       return price;
+       return this.price;
    }
    public double getQuantity(){
-       return quantity;
+       return this.quantity;
+   }
+
+   public String toString(){
+       return "Item: { orderlinenum: " + this.getOrderLineNum() + ", price: " + this.getPrice() + ", quantity: " +  this.getQuantity() +" }";
    }
 
 }

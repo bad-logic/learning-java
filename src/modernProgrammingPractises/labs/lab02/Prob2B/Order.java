@@ -10,7 +10,7 @@ public class Order {
     private Date orderDate;
     private List<OrderLine> orderlines;
 
-    public Order(int orderNum, int aYear,
+    Order(int orderNum, int aYear,
                  int aMonth, int aDay){
         this.orderNum = orderNum;
         GregorianCalendar cal = new GregorianCalendar(aYear, aMonth - 1, aDay);
@@ -18,7 +18,7 @@ public class Order {
         this.orderlines = new ArrayList<>();
     }
 
-    public void addOderLines(int orderNum, double price, double quantity){
+    public void addOrderLines(int orderNum, double price, double quantity){
         OrderLine newOderLine = new OrderLine(orderNum, price, quantity);
         orderlines.add(newOderLine);
     }
@@ -28,9 +28,9 @@ public class Order {
 
     @Override
     public String toString() {
-        String result = "Order No: " + orderNum + ",i " + "Date " + orderDate +"\n";
+        String result = "Order No: " + orderNum + " \n" + "Date: " + orderDate +"\n" + "Order Items: \n";
         for (OrderLine orderLine : orderlines) {
-            result += "Order Item: " + orderLine.getOrderlineNum() + orderLine.getPrice() + orderLine.getQuantity() + "\n";
+            result += orderLine.toString() + "\n";
         }
         return result;
 

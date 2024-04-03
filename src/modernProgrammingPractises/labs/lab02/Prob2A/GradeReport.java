@@ -2,10 +2,10 @@ package modernProgrammingPractises.labs.lab02.Prob2A;
 
 public class GradeReport {
     private String grade;
-    private Student owner;
+    private Student student;
 
      GradeReport(Student student ){
-         owner = student;
+         this.student = student;
      }
 
      public void setGrade(String grade){
@@ -13,9 +13,9 @@ public class GradeReport {
      }
 
      public String getGrade(){
-         return grade;
+         return this.grade;
      }
-     public Student getOwner(){
-         return owner;
+     public Student getStudent(){
+         return this.student;
      }
 }
