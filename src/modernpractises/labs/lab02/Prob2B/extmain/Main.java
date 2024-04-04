@@ -1,7 +1,7 @@
-package modernProgrammingPractises.labs.lab02.Prob2B.extmain;
+package modernpractises.labs.lab02.Prob2B.extmain;
 
-import modernProgrammingPractises.labs.lab02.Prob2B.Order;
-import modernProgrammingPractises.labs.lab02.Prob2B.OrderFactory;
+import modernpractises.labs.lab02.Prob2B.Order;
+import modernpractises.labs.lab02.Prob2B.OrderFactory;
 
 public class Main {
     public static void main(String[] args){

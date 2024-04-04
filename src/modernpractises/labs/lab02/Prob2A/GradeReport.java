@@ -1,4 +1,4 @@
-package modernProgrammingPractises.labs.lab02.Prob2A;
+package modernpractises.labs.lab02.Prob2A;
 
 public class GradeReport {
     private String grade;
