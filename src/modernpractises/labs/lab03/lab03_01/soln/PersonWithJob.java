@@ -13,23 +13,19 @@ public class PersonWithJob {
 		this.person = new Person(n);
 		this.salary = s;
 	}
-
-	PersonWithJob(String n) {
-		this.person = new Person(n);
-	}
 	
 	@Override
 	public boolean equals(Object aPersonWithJob) {
 		if(aPersonWithJob == null) return false;
 		if(!(aPersonWithJob instanceof PersonWithJob)) return false;
 		PersonWithJob p = (PersonWithJob)aPersonWithJob;
-		return this.person.equals(p.person);
+		return this.person.equals(p.person) && this.getSalary() == p.getSalary();
 	}
 
 	public static void main(String[] args) {
 		PersonWithJob p1 = new PersonWithJob("Joe", 30000);
-		PersonWithJob p2 = new PersonWithJob("Joe");
-		//As PersonsWithJobs, p1 should be equal to p2
+		PersonWithJob p2 = new PersonWithJob("Joe", 30000);
+
 		System.out.println("p1.equals(p2)? " + p1.equals(p2));
 		System.out.println("p2.equals(p1)? " + p2.equals(p1));
 	}

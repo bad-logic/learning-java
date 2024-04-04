@@ -14,7 +14,7 @@ public class Person {
 		if(aPerson == null) return false;
 		if(!(aPerson instanceof Person)) return false;
 		Person p = (Person)aPerson;
-		return this.name.equals(p.name);
+		return this.getName().equals(p.getName());
 	}
 	public static void main(String[] args) {
 		
