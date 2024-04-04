@@ -1,4 +1,4 @@
-package modernProgrammingPractises.labs.lab02.Prob2B;
+package modernpractises.labs.lab02.Prob2B;
 
 import java.util.ArrayList;
 import java.util.Date;

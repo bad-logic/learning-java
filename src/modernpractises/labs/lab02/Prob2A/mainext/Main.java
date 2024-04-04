@@ -1,6 +1,6 @@
-package modernProgrammingPractises.labs.lab02.Prob2A.mainext;
+package modernpractises.labs.lab02.Prob2A.mainext;
 
-import modernProgrammingPractises.labs.lab02.Prob2A.Student;
+import modernpractises.labs.lab02.Prob2A.Student;
 
 public class Main {
     public static void main(String[] args){
