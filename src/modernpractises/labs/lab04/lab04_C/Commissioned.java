@@ -1,5 +1,6 @@
 package modernpractises.labs.lab04.lab04_C;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Commissioned extends Employee{
@@ -32,11 +33,12 @@ public class Commissioned extends Employee{
 	private boolean isPreviousMonth(int month, int year, Order order) {
 		int previousMonth = month - 1;
 		int previousYear = year;
+		LocalDate orderDate = order.getOrderDate();
 		
 		if (previousMonth == 12) {
 			previousYear--;
 		}
 		
-		return (order.getOrderDate().getMonthValue() < month && order.getOrderDate().getYear() == previousYear);
+		return (orderDate.getMonthValue() < month && orderDate.getYear() == previousYear);
 	}
 }
