@@ -11,11 +11,12 @@ public class Order {
     private List<OrderLine> orderlines;
 
     Order(int orderNum, int aYear,
-                 int aMonth, int aDay){
+                 int aMonth, int aDay,double price, double quantity){
         this.orderNum = orderNum;
         GregorianCalendar cal = new GregorianCalendar(aYear, aMonth - 1, aDay);
         orderDate = cal.getTime();
         this.orderlines = new ArrayList<>();
+        this.addOrderLines(orderNum,price,quantity);
     }
 
     public void addOrderLines(int orderNum, double price, double quantity){
