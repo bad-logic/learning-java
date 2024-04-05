@@ -13,11 +13,10 @@ public class Admin {
 	public void addProperty(Property property) {
 		this.properties.add(property);
 	}
-	
-	
-	public static double computeTotalRent(Property[] properties) {
+
+	public double computeTotalRent() {
 		double totalRent = 0;
-		for (Property o : properties) {
+		for (Property o : this.properties) {
 			totalRent += o.computeRent();	
 		}
 		return totalRent;

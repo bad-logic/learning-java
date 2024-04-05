@@ -1,7 +1,5 @@
 package modernpractises.labs.lab03.lab03_03;
 
-
-
 public class House extends Property{
 	private double lotSize;
 	public House(Address address, double lotSize) {

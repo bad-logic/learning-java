@@ -1,7 +1,5 @@
 package modernpractises.labs.lab03.lab03_03;
 
-
-
 public class Condo extends Property {
 	private int numberOfFloors;
 	
@@ -11,6 +9,6 @@ public class Condo extends Property {
 	}
 
 	public double computeRent(){
-		return 500 * numberOfFloors;
+		return 400 * this.numberOfFloors;
 	}
 }
