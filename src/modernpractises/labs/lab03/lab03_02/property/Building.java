@@ -20,10 +20,10 @@ public class Building {
 
     double getProfit(){
         double profit = 0;
-        for(Apartment a: apartmentList){
+        for(Apartment a: this.apartmentList){
             profit += a.getRent();
         }
-        return profit - maintenanceCost;
+        return profit - this.maintenanceCost;
     }
 
     List<Apartment> getApartments(){
@@ -34,7 +34,7 @@ public class Building {
         StringBuilder sb = new StringBuilder("Building { maintenanceCost: ");
         sb.append(this.maintenanceCost);
         sb.append(", apartments: [ ");
-        for(Apartment a: apartmentList){
+        for(Apartment a: this.apartmentList){
             sb.append(a.toString());
             sb.append(",");
         }
