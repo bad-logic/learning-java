@@ -15,7 +15,7 @@ public class Landlord {
 
     public Building addBuilding(double mc){
         Building nb = new Building(this,mc);
-        buildingList.add(nb);
+        this.buildingList.add(nb);
         return nb;
     }
 
@@ -25,7 +25,7 @@ public class Landlord {
 
     public double getMonthlyProfit(){
         double profit = 0;
-        for(Building b: buildingList){
+        for(Building b: this.buildingList){
             profit += b.getProfit();
         }
         return profit;
@@ -41,7 +41,7 @@ public class Landlord {
 
     public String toString(){
         StringBuilder sb = new StringBuilder("Landlord { \nbuildings: [ \n");
-        for(Building b: buildingList){
+        for(Building b: this.buildingList){
             sb.append(b.toString());
             sb.append(",\n");
         }

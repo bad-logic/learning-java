@@ -6,8 +6,10 @@ import java.util.List;
 public class Admin {
 	private List<Property> properties;
 	
-	public Admin() {
+	public Admin(Property p) {
 		this.properties = new ArrayList<>();
+		// landlord has at least one property
+		this.properties.add(p);
 	}
 	
 	public void addProperty(Property property) {

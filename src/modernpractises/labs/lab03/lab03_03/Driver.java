@@ -4,18 +4,20 @@ package modernpractises.labs.lab03.lab03_03;
 public class Driver {
 
 	public static void main(String[] args) {
-		Admin admin = new Admin();
+		Admin admin = new Admin(new Condo(new Address("500 N 2nd street", "Fairfield", "IA", "52556"), 3));
+
 		Address[] addresses = {
 				new Address("111 Main", "Fairfield", "IA", "52556"),
 				new Address("200 Forest Ave", "Fairfield", "IA", "52556"),
 			    new Address("10 N. 4th St.", "Fairfield", "IA", "52556")
 		};
+
 		Property[] properties = {
-				new House(addresses[0], 1200.0), 
-				new Condo(addresses[1], 2), 
-				new Trailer(addresses[2]) 
+				new House(addresses[0], 1200.0),
+				new Condo(addresses[1], 2),
+				new Trailer(addresses[2])
 		};
-		
+
 		for(Property property: properties) {
 			admin.addProperty(property);
 		}
