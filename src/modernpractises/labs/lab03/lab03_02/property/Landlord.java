@@ -6,8 +6,11 @@ import java.util.List;
 
 public class Landlord {
     List<Building> buildingList;
-    Landlord(){
+    Landlord(double mc,double rent){
         this.buildingList  =  new ArrayList<>();
+        // because of one to many association, building and apartment
+        // is created while creating landlord
+        this.addApartment(this.addBuilding(mc),rent);
     }
 
     public Building addBuilding(double mc){

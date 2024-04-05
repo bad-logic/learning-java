@@ -24,7 +24,7 @@ public class Main {
         landlord.addApartment(c,664.89);
         landlord.addApartment(c,1664.89);
 
-        System.out.println(landlord);
+//        System.out.println(landlord);
 //        System.out.println(a);
 
         System.out.println(landlord.getMonthlyProfit());
