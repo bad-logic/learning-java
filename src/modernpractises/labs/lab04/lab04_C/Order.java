@@ -14,10 +14,10 @@ public class Order {
 	}
 	
 	public double getOrderAmount() {
-		return orderAmount;
+		return this.orderAmount;
 	}
 	
 	public LocalDate getOrderDate() {
-		return orderDate;
+		return this.orderDate;
 	}
 }

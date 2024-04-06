@@ -4,23 +4,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class EmployeeFactory {
-	public static Commissioned createCommissioned(String empid, double commission, double baseSalary, List<Order> order) {
-		Commissioned newCommissioned = new Commissioned(empid, commission, baseSalary, order);
-		return newCommissioned;
+	public static Commissioned createCommissioned(String empId, double commission, double baseSalary, List<Order> order) {
+		return new Commissioned(empId, commission, baseSalary, order);
 	}
 	
 	public static Salaried createSalaried(String empId, double salary) {
-		Salaried newSalaried = new Salaried(empId, salary);
-		return newSalaried;
+		return new Salaried(empId, salary);
 	}
 	
 	public static Hourly createHourly(String empId, double hoursPerWeek, double hourlyWage) {
-		Hourly newHourly = new Hourly(empId, hoursPerWeek, hourlyWage);
-		return newHourly;
+		return new Hourly(empId, hoursPerWeek, hourlyWage);
 	}
 	
 	public static Order createOrder(String orderNo, LocalDate orderDate, double orderAmount) {
-		Order newOrder = new Order(orderNo, orderDate, orderAmount);
-		return newOrder;
+		return new Order(orderNo, orderDate, orderAmount);
 	}
 }
+
