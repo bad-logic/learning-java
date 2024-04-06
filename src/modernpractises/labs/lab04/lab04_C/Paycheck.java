@@ -31,7 +31,7 @@ public final class Paycheck {
 	}
 	
 	public double getNetPay() {
-		return grossPay - ( (grossPay * fica ) + (grossPay * state ) + (grossPay * local ) + (grossPay * medicare ) + (grossPay * socialSecurity ));
+		return grossPay - grossPay * (this.fica + this.state + this.local + this.medicare + this.socialSecurity);
 	}
 	
 	@Override
