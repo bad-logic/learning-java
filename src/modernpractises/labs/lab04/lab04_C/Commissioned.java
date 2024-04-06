@@ -6,23 +6,31 @@ import java.util.List;
 public class Commissioned extends Employee{
 	private double commission;
 	private double baseSalary;
-	private List<Order> order;
+	private List<Order> orders;
 	
-	Commissioned(String empid, double commission, double baseSalary, List<Order> order){
-		super(empid);
+	Commissioned(String empId, double commission, double baseSalary, List<Order> order){
+		super(empId);
 		this.commission = commission;
 		this.baseSalary = baseSalary;
-		this.order = order;
+		this.orders = order;
 	}
-	
+
+	public void addOrders(List<Order> orders){
+		this.orders.addAll(this.orders.size(),orders);
+	}
+
+	public List<Order> getOrders(){
+		return this.orders;
+	}
+
 	public double calcGrossPay(int month, int year) {
-		return baseSalary + (commission * totalValueOfAllOrder(month, year));
+		return this.baseSalary + (this.commission * totalValueOfAllOrder(month, year));
 	}
 	
 	
 	private double totalValueOfAllOrder(int month, int year) {
 		double total = 0;
-		for(Order ord: order) {
+		for(Order ord: this.orders) {
 			if (isPreviousMonth(month, year, ord)) {
 				total += ord.getOrderAmount();								
 			}
@@ -38,7 +46,7 @@ public class Commissioned extends Employee{
 		if (previousMonth == 12) {
 			previousYear--;
 		}
-		
-		return (orderDate.getMonthValue() < month && orderDate.getYear() == previousYear);
+
+		return (orderDate.getMonthValue() == previousMonth && orderDate.getYear() == previousYear);
 	}
 }
