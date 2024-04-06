@@ -20,7 +20,7 @@ public class Order {
     }
 
     public void addOrderLines(int orderNum, double price, double quantity){
-        OrderLine newOderLine = new OrderLine(orderNum, price, quantity);
+        OrderLine newOderLine = new OrderLine(this,orderNum, price, quantity);
         orderlines.add(newOderLine);
     }
     public int getOrderNum(){

@@ -4,8 +4,10 @@ public class OrderLine {
     private int orderlineNum;
     private double price;
     private double quantity;
+    private Order order;
 
-   OrderLine(int orderlineNum, double price, double quantity){
+   OrderLine(Order ord,int orderlineNum, double price, double quantity){
+       this.order = ord;
        this.orderlineNum = orderlineNum;
        this.price = price;
        this.quantity = quantity;
