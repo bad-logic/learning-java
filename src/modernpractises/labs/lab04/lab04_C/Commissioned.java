@@ -24,11 +24,11 @@ public class Commissioned extends Employee{
 	}
 
 	public double calcGrossPay(int month, int year) {
-		return this.baseSalary + (this.commission * totalValueOfAllOrder(month, year));
+		return this.baseSalary + (this.commission * getTotalValueOfAllOrder(month, year));
 	}
 	
 	
-	private double totalValueOfAllOrder(int month, int year) {
+	private double getTotalValueOfAllOrder(int month, int year) {
 		double total = 0;
 		for(Order ord: this.orders) {
 			if (isPreviousMonth(month, year, ord)) {
