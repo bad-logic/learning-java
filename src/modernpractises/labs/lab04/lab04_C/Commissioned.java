@@ -19,6 +19,10 @@ public class Commissioned extends Employee{
 		this.orders.addAll(this.orders.size(),orders);
 	}
 
+	public List<Order> getOrders(){
+		return this.orders;
+	}
+
 	public double calcGrossPay(int month, int year) {
 		return this.baseSalary + (this.commission * totalValueOfAllOrder(month, year));
 	}
