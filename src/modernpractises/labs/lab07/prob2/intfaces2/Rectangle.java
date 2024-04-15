@@ -1,4 +1,4 @@
-package lesson5.lecture.intfaces2;
+package modernpractises.labs.lab07.prob2.intfaces2;
 
 public class Rectangle implements ClosedCurve {
 	private double length, width;

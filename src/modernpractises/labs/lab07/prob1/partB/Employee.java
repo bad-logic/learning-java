@@ -1,4 +1,4 @@
-package lesson7.labs.prob1.partB;
+package modernpractises.labs.lab07.prob1.partB;
 
 public class Employee {
 	private String name;
