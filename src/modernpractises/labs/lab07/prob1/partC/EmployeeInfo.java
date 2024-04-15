@@ -1,4 +1,4 @@
-package lesson7.labs.prob1.partC;
+package modernpractises.labs.lab07.prob1.partC;
 
 import java.util.ArrayList;
 import java.util.HashMap;
