@@ -28,4 +28,13 @@ public class Employee {
 	public boolean equals(Employee e) {
 		return e.name.equals(name) && e.salary == salary;
 	}
+
+//	@Override
+//	public boolean equals(Object obj) {
+//	    if(obj == null) return false;
+//		if(this.getClass() != obj.getClass()) return false;
+//		Employee em = (Employee) obj;
+//		return em.name.equals(name) && em.salary == salary;
+//	}
+
 }

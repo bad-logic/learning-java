@@ -7,9 +7,11 @@ public class DataMiner {
 	List<ClosedCurve> objects = new ArrayList<>();
 	public static void main(String[] args) {
 		DataMiner dm = new DataMiner();
+		dm.objects.add(new Circle(6));
 		dm.objects.add(new Rectangle(5,7));
 		dm.objects.add(new Rectangle(2,9));
-		dm.objects.add(new Circle(6));
+		dm.objects.add(new Ellipse(2,3));
+		dm.objects.add(new EquilateralTriangle(5));
 		System.out.println(dm.computeAveragePerimeter());
 	}
 	
