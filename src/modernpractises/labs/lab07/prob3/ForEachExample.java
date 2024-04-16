@@ -15,7 +15,7 @@ public class ForEachExample {
 		Consumer<String> consumer = new Consumer<String>() {
 			@Override
 			public void accept(String s) {
-              System.out.print(s.toUpperCase());
+              System.out.println(s.toUpperCase());
 			}
 		};
 
