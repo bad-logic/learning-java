@@ -2,7 +2,6 @@ package modernpractises.labs.lab07.prob3;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.function.Consumer;
 
 
@@ -16,17 +15,11 @@ public class ForEachExample {
 		Consumer<String> consumer = new Consumer<String>() {
 			@Override
 			public void accept(String s) {
-              System.out.print(s.toUpperCase());
+              System.out.println(s.toUpperCase());
 			}
 		};
+
 		list.forEach(consumer);
-
-
-
 	}
-
-	
-
-
 	
 }
