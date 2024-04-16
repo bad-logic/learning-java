@@ -22,7 +22,6 @@ public class DataMiner {
 		for(int i = 0; i < objects.size(); ++i) {
 			sum += objects.get(i).computePerimeter();
 		}
-		System.out.println(sum);
 		return sum/objects.size();
 	}
 
