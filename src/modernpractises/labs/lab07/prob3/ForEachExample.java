@@ -2,7 +2,6 @@ package modernpractises.labs.lab07.prob3;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.function.Consumer;
 
 
@@ -19,14 +18,8 @@ public class ForEachExample {
               System.out.print(s.toUpperCase());
 			}
 		};
+
 		list.forEach(consumer);
-
-
-
 	}
-
-	
-
-
 	
 }
