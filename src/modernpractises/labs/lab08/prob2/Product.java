@@ -1,4 +1,5 @@
-package modernpractises.labs.lab08;
+package modernpractises.labs.lab08.prob2;
+
 
 public class Product {
 	final String title;
@@ -27,5 +28,6 @@ public class Product {
 	public String toString() {
 		return String.format("\n %s : %s : %s", title, price, model);
 	}
+
 
 }
