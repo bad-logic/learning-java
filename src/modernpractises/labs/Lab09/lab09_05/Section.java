@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 public class Section {
 
     private static Stream<String> nextStream() {
-        return Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee", "fff", "ggg", "hhh","iii").stream();
+        return Stream.of("aaa", "bbb", "ccc", "ddd", "eee", "fff", "ggg", "hhh","iii");
     }
 
     public static Stream<String> streamSection(Stream<String> stream, int m, int n) {
