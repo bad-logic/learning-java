@@ -1,6 +1,7 @@
 package modernpractises.labs.Lab09.lab09_7a;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -16,6 +17,10 @@ public class Main {
 		                  new Employee("Donald", "Trump", 100000));
 		
 		//your stream pipeline here
+		String str = list.stream().filter(x->x.getSalary() > 100000).filter(x-> (int) x.getLastName().charAt(0) > (int) 'M')
+				.map(x-> x.getFirstName() + " " + x.getLastName()).sorted().collect(Collectors.joining(", "));
+
+		System.out.println(str);
 
 	}
 
