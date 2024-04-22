@@ -24,6 +24,8 @@
   [21. Control Statements](/docs/fundamentals/21.%20Control%20Statements.md)<br>
   [22. loops ](/docs/fundamentals/22.%20loops.md)<br>
   [23. Jump Statements](/docs/fundamentals/23.%20Jump%20Statements.md)<br>
+  [24. Type inference with local variables ](/docs/fundamentals/24.%20Type%20inference%20with%20local%20variables.md)<br>
+
 
 
 
