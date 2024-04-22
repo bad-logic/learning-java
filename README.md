@@ -25,8 +25,7 @@
   [22. loops ](/docs/fundamentals/22.%20loops.md)<br>
   [23. Jump Statements](/docs/fundamentals/23.%20Jump%20Statements.md)<br>
   [24. Type inference with local variables ](/docs/fundamentals/24.%20Type%20inference%20with%20local%20variables.md)<br>
-
-
+  [25. Java: call by value not call by reference](/docs/fundamentals/25.%20java%20call%20by%20value%20not%20call%20by%20reference.md)<br>
 
 
 
