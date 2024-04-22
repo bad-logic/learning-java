@@ -9,7 +9,7 @@
   [05. main() method ](/docs/fundamentals/05.%20main()%20method.md)<br>
   [07. Data Types ( Primitive )](/docs/fundamentals/07.%20Data%20Types%20(%20Primitive%20).md)<br>
   [08. Float Inconsistency](/docs/fundamentals/08.%20Float%20Inconsistency.md)<br>
-
+  [09. variables and Literals](/docs/fundamentals/09.%20variables%20and%20Literals.md)<br>
 
 
 - Objects
