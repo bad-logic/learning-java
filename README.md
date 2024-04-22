@@ -23,7 +23,7 @@
   [20. String Buffer and Builder](/docs/fundamentals/20.%20String%20Buffer%20and%20Builder.md)<br>
   [21. Control Statements](/docs/fundamentals/21.%20Control%20Statements.md)<br>
   [22. loops ](/docs/fundamentals/22.%20loops.md)<br>
-  
+  [23. Jump Statements](/docs/fundamentals/23.%20Jump%20Statements.md)<br>
 
 
 
