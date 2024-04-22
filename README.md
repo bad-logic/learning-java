@@ -11,5 +11,17 @@
   [08. Float Inconsistency](/docs/fundamentals/08.%20Float%20Inconsistency.md)<br>
   [09. variables and Literals](/docs/fundamentals/09.%20variables%20and%20Literals.md)<br>
   [10. Type Conversion and Casting](/docs/fundamentals/10.%20Type%20Conversion%20and%20Casting.md)<br>
+  [11. Automatic Type Promotion in Expressions](/docs/fundamentals/11.%20Automatic%20Type%20Promotion%20in%20Expressions.md)<br>  
+
+
+
+
+
+
+
+
+
+
+
 
 - Objects
