@@ -13,6 +13,7 @@
   [10. Type Conversion and Casting](/docs/fundamentals/10.%20Type%20Conversion%20and%20Casting.md)<br>
   [11. Automatic Type Promotion in Expressions](/docs/fundamentals/11.%20Automatic%20Type%20Promotion%20in%20Expressions.md)<br>  
   [12. Operators ( Arithmetic )](/docs/fundamentals/12.%20Operators%20(%20Arithmetic%20).md)<br>
+  [13. Operators ( Bitwise )](/docs/fundamentals/13.%20Operators%20(%20Bitwise%20).md)<br>
 
 
 
