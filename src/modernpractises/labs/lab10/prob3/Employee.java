@@ -19,6 +19,7 @@ public class Employee {
 
     @Override
     public boolean equals(Object o){
+        if(o==null) return false;
         if(o.getClass() != this.getClass()){
             return false;
         }
