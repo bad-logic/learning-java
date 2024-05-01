@@ -10,7 +10,7 @@ public class GroupUtil {
 		return GroupUtil.copyHelper(group);
 	}
 	//Fix this code
-	public static <T> Group<T> copyHelper(Group<T> group) {
+	private static <T> Group<T> copyHelper(Group<T> group) {
 		List<T> elements = group.getElements();
 		return new Group<T>(group.getSpecialElement(), elements);
 	}
