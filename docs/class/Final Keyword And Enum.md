@@ -2,6 +2,7 @@
 
 
 ### Final Keyword
+- prevents its contents from being modified, making it essentially a constant.
 - `private final String name;` : name field can never be changed.
 - `public static final int TAX_RATE;` : TAX_RATE is considered to be a constant.
 - `public final class Greet{}`: Class cannot be inherited.

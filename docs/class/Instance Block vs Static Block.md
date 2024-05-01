@@ -48,7 +48,7 @@ public class Test{
 ```
 
 if we compile the above code using java compiler and have a look at the .class file we can
-see that the initializer blocks are being copied inside the constructor like so.
+see that the instance blocks are being copied inside the constructor like so.
 
 ```java
 
