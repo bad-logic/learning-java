@@ -31,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
 		
 		accountDAO.updateAccount(account);
 
-		// dispatch account created events
+		// dispatch account change events
 		this.notifyObservers(Event.ACCOUNT_CHANGE);
 	}
 
@@ -49,7 +49,7 @@ public class AccountServiceImpl implements AccountService {
 		account.withdraw(amount);
 		accountDAO.updateAccount(account);
 
-		// dispatch account created events
+		// dispatch account change events
 		this.notifyObservers(Event.ACCOUNT_CHANGE);
 	}
 
@@ -61,7 +61,7 @@ public class AccountServiceImpl implements AccountService {
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
 
-		// dispatch account created events
+		// dispatch account change events
 		this.notifyObservers(Event.ACCOUNT_CHANGE);
 	}
 
