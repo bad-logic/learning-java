@@ -3,7 +3,7 @@ package designPatterns.labs.lab03;
 public class P2Interest extends InterestPromotionDecorator{
 
     P2Interest(InterestStrategy interestStrategy){
-        this.interesetStrategy = interestStrategy;
+        this.interestStrategy = interestStrategy;
     }
 
     /**
@@ -13,7 +13,7 @@ public class P2Interest extends InterestPromotionDecorator{
     @Override
     public Account addInterest(Account acc) {
         // add interest based on checking or saving accounts
-        this.interesetStrategy.addInterest(acc);
+        this.interestStrategy.addInterest(acc);
 
         // add p2 promotional interest
         double balance = acc.getBalance();
