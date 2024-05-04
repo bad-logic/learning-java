@@ -8,6 +8,7 @@ public class MockAccountDAOImpl implements AccountDAO {
 
 	public void saveAccount(Account account) {
 		accountlist.add(account); // add the new
+		System.out.println("MockAccountDAOImpl:saveAccount");
 	}
 
 	public void updateAccount(Account account) {
@@ -16,6 +17,7 @@ public class MockAccountDAOImpl implements AccountDAO {
 			accountlist.remove(accountexist); // remove the old
 			accountlist.add(account); // add the new
 		}
+		System.out.println("MockAccountDAOImpl:updateAccount");
 
 	}
 
@@ -25,10 +27,12 @@ public class MockAccountDAOImpl implements AccountDAO {
 				return account;
 			}
 		}
+		System.out.println("MockAccountDAOImpl:loadAccount");
 		return null;
 	}
 
 	public Collection<Account> getAccounts() {
+		System.out.println("MockAccountDAOImpl:getAccounts");
 		return accountlist;
 	}
 

@@ -9,6 +9,10 @@ public class AccountServiceImpl implements AccountService {
 		this.accountDAO = accountFactory.getAccountDAO();
 	}
 
+	public void setAccountDAO(AccountDAOFactory accountFactory){
+		this.accountDAO = accountFactory.getAccountDAO();
+	}
+
 	public Account createAccount(String accountNumber, String customerName) {
 		Account account = new Account(accountNumber);
 		Customer customer = new Customer(customerName);

@@ -6,6 +6,7 @@ public abstract class AccountDAOFactory {
         return createAccountDAO();
     }
 
+    // we can only have this method here since we are not doing anything with the object in getAccountDAO
    abstract AccountDAO createAccountDAO();
 
 }
