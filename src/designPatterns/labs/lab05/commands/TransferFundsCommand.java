@@ -3,42 +3,34 @@ package designPatterns.labs.lab05.commands;
 import designPatterns.labs.lab05.Account;
 
 public class TransferFundsCommand implements Command{
-    Account toAccount;
-    Command deposit;
-    Command withdraw;
 
-    public TransferFundsCommand(Account toAccount){
-        this.deposit = new DepositCommand();
-        this.withdraw = new WithdrawCommand();
+    private final Account toAccount;
+    private final Account fromAccount;
+    private final double amount;
+    private final String description;
+
+    public TransferFundsCommand(Account fromAccount,Account toAccount,double amount,String description){
+        this.fromAccount = fromAccount;
+        this.amount = amount;
+        this.description = description;
         this.toAccount = toAccount;
     }
-    /**
-     * @param acc
-     * @param amount
-     */
-    @Override
-    public void execute(Account acc, double amount, String description) {
-        this.deposit.execute(this.toAccount,amount,description);
-        this.withdraw.execute(acc,amount,description);
+
+
+    public void execute()  {
+        new DepositCommand(this.toAccount,this.amount,this.description).execute();
+        new WithdrawCommand(this.fromAccount,this.amount,this.description).execute();
     }
 
-    /**
-     * @param acc
-     * @param amount
-     */
-    @Override
-    public void undo(Account acc, double amount,String description) {
-        this.deposit.execute(acc,amount,"undo:"+description);
-        this.withdraw.execute(this.toAccount,amount,"undo:"+description);
+    public void redo() {
+        new DepositCommand(this.toAccount,this.amount,"redo:"+this.description).execute();
+        new WithdrawCommand(this.fromAccount,this.amount,"redo:"+this.description).execute();
     }
 
-    /**
-     * @param acc
-     * @param amount
-     */
-    @Override
-    public void redo(Account acc, double amount,String description) {
-        this.deposit.execute(this.toAccount,amount,"redo:"+description);
-        this.withdraw.execute(acc,amount,"redo:"+description);
+    public void undo() {
+        new DepositCommand(this.fromAccount,this.amount,"undo:"+this.description).execute();
+        new WithdrawCommand(this.toAccount,this.amount,"undo:"+this.description).execute();
     }
+
+
 }

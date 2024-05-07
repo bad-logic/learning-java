@@ -8,7 +8,7 @@ public interface AccountService {
     Collection<Account> getAllAccounts();
     void deposit (String accountNumber, double amount);
     void withdraw (String accountNumber, double amount);
-    void redoLastTransaction (String accountNumber);
-    void undoLastTransaction (String accountNumber);
     void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description);
+    abstract void redo();
+    abstract void undo();
 }

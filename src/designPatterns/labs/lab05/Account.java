@@ -1,61 +1,39 @@
 package designPatterns.labs.lab05;
 
-import designPatterns.labs.lab05.commands.Command;
-import designPatterns.labs.lab05.commands.Invoker;
-import designPatterns.labs.lab05.commands.NoCommand;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Account implements Invoker {
+public class Account {
 	private Customer customer;
 
 	private String accountNumber;
 
 	private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
 
-	private Command cmd;
-
-	// last transaction information
-	private Command lastCommand;
-	private double lastAmount;
-	private String lastDescription;
-
 	public Account(String accountNumber) {
 		this.accountNumber = accountNumber;
-		this.cmd = new NoCommand();
-
-		this.lastCommand = new NoCommand();
-		this.lastAmount = 0.0;
-		this.lastDescription = "";
 	}
 
-	public void setCommand(Command cmd){
-		this.cmd = cmd;
+	public void deposit(double amount,String description){
+		AccountEntry entry = new AccountEntry(amount, description, "", "");
+		entryList.add(entry);
 	}
 
-	@Override
-	public void execute(double amount, String description) {
-		// save for redo or undo
-		this.lastCommand = this.cmd;
-		this.lastDescription = description;
-		this.lastAmount = amount;
-
-		this.cmd.execute(this,amount,description);
-		// clean slate for next operation
-		// if not set throws error so client knows cmd must be set
-		this.cmd = null;
+	public void withdraw(double amount,String description) {
+		AccountEntry entry = new AccountEntry(-amount, description, "", "");
+		entryList.add(entry);
 	}
 
-	@Override
-	public void redo(){
-		this.lastCommand.redo(this,this.lastAmount,this.lastDescription);
-	}
+	public void transferFunds(Account toAccount, double amount, String description) {
+		AccountEntry fromEntry = new AccountEntry(-amount, description, toAccount.getAccountNumber(),
+				toAccount.getCustomer().getName());
+		AccountEntry toEntry = new AccountEntry(amount, description, toAccount.getAccountNumber(),
+				toAccount.getCustomer().getName());
 
-	@Override
-	public void undo(){
-		this.lastCommand.undo(this,this.lastAmount,this.lastDescription);
+		entryList.add(fromEntry);
+
+		toAccount.addEntry(toEntry);
 	}
 
 	public String getAccountNumber() {
