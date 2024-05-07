@@ -1,22 +1,8 @@
-package designPatterns.labs.lab02;
-
-import designPatterns.labs.lab02.observers.EmailSender;
-import designPatterns.labs.lab02.observers.Logger;
-import designPatterns.labs.lab02.observers.SMSSender;
+package designPatterns.labs.lab05;
 
 public class Application {
 	public static void main(String[] args) {
 		AccountService accountService = new AccountServiceImpl();
-
-		// create observer
-		EmailSender emailSenderObserver = new EmailSender();
-		Logger loggerObserver = new Logger();
-		SMSSender smsSender = new SMSSender();
-
-		// observer subscribe to accountService
-		emailSenderObserver.subscribe(accountService);
-		loggerObserver.subscribe(accountService);
-		smsSender.subscribe(accountService);
 
 		// create 2 accounts;
 		accountService.createAccount("1263862", "Frank Brown");
@@ -24,17 +10,20 @@ public class Application {
 		// use account 1;
 		accountService.deposit("1263862", 240);
 		accountService.deposit("1263862", 529);
-		accountService.withdraw("1263862", 230);
 
-		// unsubscribe smsSender
-		smsSender.unsubscribe(accountService);
+		accountService.redo();
+		accountService.undo();
+
+		// withdraw
+		accountService.withdraw("1263862", 230);
+		accountService.redo();
+		accountService.undo();
 		// use account 2;
 		accountService.deposit("4253892", 12450);
 		accountService.transferFunds("4253892", "1263862", 100, "payment of invoice 10232");
 
-		System.out.println();
-		// show balances
 
+		// show balances
 		for (Account account : accountService.getAllAccounts()) {
 			Customer customer = account.getCustomer();
 			System.out.println("Statement for Account: " + account.getAccountNumber());

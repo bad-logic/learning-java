@@ -1,0 +1,5 @@
+
+
+Consider the solution to lab 1 (Interest Strategy). Add a InterestPromotionDecorator on top of that in such a way that accounts can be assigned
+a promotional interest on top of their existing interest. Assume that there are three decorators. P1 adds 1%, P2 adds 2% and P3 adds 3% and again
+they can be added to any of the accounts. Furthermore, promotions can be combined. Note that decorators can be added on top of Checking and Savings strategies.

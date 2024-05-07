@@ -24,15 +24,15 @@ import java.util.Arrays;
 public class Processor {
 
     public void process(int i, int j) {
-        System.out.printf("Processing two integers:%d, %d", i, j);
+        System.out.println("Processing two integers: "+ i + ", "+ j);
     }
 
     public void process(int[] ints) {
-        System.out.println("Adding integer array:" + Arrays.toString(ints));
+        System.out.println("Processing integer array:" + Arrays.toString(ints));
     }
 
     public void process(Object[] objs) {
-        System.out.println("Adding integer array:" + Arrays.toString(objs));
+        System.out.println("Processing Object array:" + Arrays.toString(objs));
     }
 }
 
@@ -54,3 +54,6 @@ class MathProcessor extends Processor {
 
 }
 ```
+
+In the above examples all methods decorated with @Override in the subclass are overriden methods, while the process methods 
+inside Processor class with different parameters are overloaded.
