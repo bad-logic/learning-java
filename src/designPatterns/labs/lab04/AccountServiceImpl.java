@@ -1,15 +1,16 @@
-package designPatterns.labs.lab02;
+package designPatterns.labs.lab04;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class AccountServiceImpl implements AccountService {
 	private AccountDAO accountDAO;
-	private List<Observer> observersList = new ArrayList<Observer>();
 	
-	public AccountServiceImpl(){
-		accountDAO = new AccountDAOImpl();
+	public AccountServiceImpl(AccountDAOFactory accountFactory){
+		this.accountDAO = accountFactory.getAccountDAO();
+	}
+
+	public void setAccountDAO(AccountDAOFactory accountFactory){
+		this.accountDAO = accountFactory.getAccountDAO();
 	}
 
 	public Account createAccount(String accountNumber, String customerName) {
@@ -18,10 +19,7 @@ public class AccountServiceImpl implements AccountService {
 		account.setCustomer(customer);
 		
 		accountDAO.saveAccount(account);
-
-		// dispatch account created events
-		this.notifyObservers(Event.ACCOUNT_CREATION);
-
+		
 		return account;
 	}
 
@@ -30,9 +28,6 @@ public class AccountServiceImpl implements AccountService {
 		account.deposit(amount);
 		
 		accountDAO.updateAccount(account);
-
-		// dispatch account change events
-		this.notifyObservers(Event.ACCOUNT_CHANGE);
 	}
 
 	public Account getAccount(String accountNumber) {
@@ -48,10 +43,8 @@ public class AccountServiceImpl implements AccountService {
 		Account account = accountDAO.loadAccount(accountNumber);
 		account.withdraw(amount);
 		accountDAO.updateAccount(account);
-
-		// dispatch account change events
-		this.notifyObservers(Event.ACCOUNT_CHANGE);
 	}
+
 
 
 	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
@@ -60,31 +53,5 @@ public class AccountServiceImpl implements AccountService {
 		fromAccount.transferFunds(toAccount, amount, description);
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
-
-		// dispatch account change events
-		this.notifyObservers(Event.ACCOUNT_CHANGE);
-	}
-
-	/**
-	 * @param observer
-	 */
-	@Override
-	public void registerObserver(Observer observer) {
-		this.observersList.add(observer);
-	}
-
-	/**
-	 * @param observer
-	 */
-	@Override
-	public void removeObserver(Observer observer) {
-		this.observersList.remove(observer);
-	}
-
-
-	private void notifyObservers(Event event) {
-		for(Observer obs: this.observersList){
-			obs.callBack(event);
-		}
 	}
 }
