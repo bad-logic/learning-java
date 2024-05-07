@@ -6,11 +6,14 @@ import java.util.Collection;
 public class AccountServiceImpl implements AccountService {
 	private AccountDAO accountDAO;
 
+	private Command cmd;
 	private Command lastCommand;
+
 
 	public AccountServiceImpl(){
 		accountDAO = new AccountDAOImpl();
 		this.lastCommand = new NoCommand();
+		this.cmd = new NoCommand();
 	}
 
 	public Account createAccount(String accountNumber, String customerName) {
@@ -23,39 +26,6 @@ public class AccountServiceImpl implements AccountService {
 		return account;
 	}
 
-	public void deposit(String accountNumber, double amount) {
-		Account account = accountDAO.loadAccount(accountNumber);
-
-		Command deposit = new DepositCommand(account,amount,"Deposit");
-		deposit.execute();
-
-		accountDAO.updateAccount(account);
-		this.lastCommand = deposit;
-	}
-
-	public void withdraw(String accountNumber, double amount) {
-		Account account = accountDAO.loadAccount(accountNumber);
-
-		Command withdraw = new WithdrawCommand(account,amount,"Withdraw");
-		withdraw.execute();
-
-		accountDAO.updateAccount(account);
-		this.lastCommand = withdraw;
-	}
-
-	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
-		Account fromAccount = accountDAO.loadAccount(fromAccountNumber);
-		Account toAccount = accountDAO.loadAccount(toAccountNumber);
-
-		Command transfer = new TransferFundsCommand(fromAccount,toAccount,amount,description);
-		transfer.execute();
-
-		accountDAO.updateAccount(fromAccount);
-		accountDAO.updateAccount(toAccount);
-
-		this.lastCommand = transfer;
-	}
-
 	public Account getAccount(String accountNumber) {
 		Account account = accountDAO.loadAccount(accountNumber);
 		return account;
@@ -65,17 +35,24 @@ public class AccountServiceImpl implements AccountService {
 		return accountDAO.getAccounts();
 	}
 
-	/**
-	 *
-	 */
+	@Override
+	public void setCommand(Command cmd) {
+		this.cmd = cmd;
+	}
+
+	@Override
+	public void execute() {
+		this.cmd.execute();
+		this.lastCommand = this.cmd;
+		// resetting the command after using
+		this.cmd = new NoCommand();
+	}
+
 	@Override
 	public void redo() {
 		this.lastCommand.redo();
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public void undo() {
 		this.lastCommand.undo();
