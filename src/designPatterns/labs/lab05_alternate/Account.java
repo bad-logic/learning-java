@@ -19,16 +19,34 @@ public class Account implements Invoker {
 
 	// last transaction information
 	private Command lastCommand;
-	private double lastAmount;
-	private String lastDescription;
+
 
 	public Account(String accountNumber) {
 		this.accountNumber = accountNumber;
 		this.cmd = new NoCommand();
 
 		this.lastCommand = new NoCommand();
-		this.lastAmount = 0.0;
-		this.lastDescription = "";
+	}
+
+	public void deposit(double amount,String description){
+		AccountEntry entry = new AccountEntry(amount, description, "", "");
+		entryList.add(entry);
+	}
+
+	public void withdraw(double amount,String description) {
+		AccountEntry entry = new AccountEntry(-amount, description, "", "");
+		entryList.add(entry);
+	}
+
+	public void transferFunds(Account toAccount, double amount, String description) {
+		AccountEntry fromEntry = new AccountEntry(-amount, description, toAccount.getAccountNumber(),
+				toAccount.getCustomer().getName());
+		AccountEntry toEntry = new AccountEntry(amount, description, toAccount.getAccountNumber(),
+				toAccount.getCustomer().getName());
+
+		entryList.add(fromEntry);
+
+		toAccount.addEntry(toEntry);
 	}
 
 	public void setCommand(Command cmd){
@@ -36,13 +54,11 @@ public class Account implements Invoker {
 	}
 
 	@Override
-	public void execute(double amount, String description) {
+	public void execute() {
 		// save for redo or undo
 		this.lastCommand = this.cmd;
-		this.lastDescription = description;
-		this.lastAmount = amount;
 
-		this.cmd.execute(this,amount,description);
+		this.cmd.execute();
 		// clean slate for next operation
 		// if not set throws error so client knows cmd must be set
 		this.cmd = null;
@@ -50,12 +66,12 @@ public class Account implements Invoker {
 
 	@Override
 	public void redo(){
-		this.lastCommand.redo(this,this.lastAmount,this.lastDescription);
+		this.lastCommand.redo();
 	}
 
 	@Override
 	public void undo(){
-		this.lastCommand.undo(this,this.lastAmount,this.lastDescription);
+		this.lastCommand.undo();
 	}
 
 	public String getAccountNumber() {

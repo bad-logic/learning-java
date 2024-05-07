@@ -1,42 +1,31 @@
 package designPatterns.labs.lab05_alternate.commands;
 
 import designPatterns.labs.lab05_alternate.Account;
-import designPatterns.labs.lab05_alternate.AccountEntry;
-
-import java.util.Collection;
 
 public class DepositCommand implements Command {
 
-    /**
-     * @param acc
-     * @param amount
-     */
-    @Override
-    public void execute(Account acc, double amount, String description) {
-        Collection<AccountEntry> entryList = acc.getEntryList();
-        AccountEntry entry = new AccountEntry(amount, description, "", "");
-        entryList.add(entry);
-    }
+        private final Account acc;
+        private final double amount;
+        private final String description;
 
-    /**
-     * @param acc
-     * @param amount
-     */
-    @Override
-    public void undo(Account acc, double amount, String description) {
-        Collection<AccountEntry> entryList = acc.getEntryList();
-        AccountEntry entry = new AccountEntry(-amount, "undo:"+description, "", "");
-        entryList.add(entry);
-    }
 
-    /**
-     * @param acc
-     * @param amount
-     */
-    @Override
-    public void redo(Account acc, double amount, String description) {
-        Collection<AccountEntry> entryList = acc.getEntryList();
-        AccountEntry entry = new AccountEntry(amount, "redo:"+description, "", "");
-        entryList.add(entry);
-    }
+        public DepositCommand(Account acc, double amount, String description){
+            this.acc = acc;
+            this.amount = amount;
+            this.description = description;
+        }
+
+        public void execute() {
+            this.acc.deposit(this.amount,this.description);
+        }
+
+        @Override
+        public void redo() {
+            this.acc.deposit(this.amount,"redo:"+this.description);
+        }
+
+        @Override
+        public void undo() {
+            this.acc.withdraw(this.amount,"undo:"+this.description);
+        }
 }

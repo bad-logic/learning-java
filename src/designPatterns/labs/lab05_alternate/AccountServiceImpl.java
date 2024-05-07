@@ -28,10 +28,10 @@ public class AccountServiceImpl implements AccountService {
 		Account account = accountDAO.loadAccount(accountNumber);
 
 		// set deposit command
-		Command deposit = new DepositCommand();
+		Command deposit = new DepositCommand(account,amount,"Deposit");
 		account.setCommand(deposit);
 
-		account.execute(amount,"Deposit");
+		account.execute();
 		accountDAO.updateAccount(account);
 	}
 
@@ -39,10 +39,10 @@ public class AccountServiceImpl implements AccountService {
 		Account account = accountDAO.loadAccount(accountNumber);
 
 		// set withdraw command
-		Command withdraw = new WithdrawCommand();
+		Command withdraw = new WithdrawCommand(account,amount,"Withdraw");
 		account.setCommand(withdraw);
 
-		account.execute(amount,"Withdraw");
+		account.execute();
 		accountDAO.updateAccount(account);
 	}
 
@@ -51,10 +51,10 @@ public class AccountServiceImpl implements AccountService {
 		Account toAccount = accountDAO.loadAccount(toAccountNumber);
 
 		// set transfer command
-		Command transfer = new TransferFundsCommand(toAccount);
+		Command transfer = new TransferFundsCommand(fromAccount,toAccount,amount,description);
 		fromAccount.setCommand(transfer);
 
-		fromAccount.execute(amount, description);
+		fromAccount.execute();
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
 	}
