@@ -10,15 +10,17 @@ public class Application {
 		// use account 1;
 		accountService.deposit("1263862", 240);
 		accountService.deposit("1263862", 529);
-		accountService.withdraw("1263862", 230);
 
-		accountService.redoLastTransaction("1263862");
-		accountService.undoLastTransaction("1263862");
+		accountService.redo();
+		accountService.undo();
+
+		// withdraw
+		accountService.withdraw("1263862", 230);
+		accountService.redo();
+		accountService.undo();
 		// use account 2;
 		accountService.deposit("4253892", 12450);
 		accountService.transferFunds("4253892", "1263862", 100, "payment of invoice 10232");
-		accountService.redoLastTransaction("4253892");
-		accountService.undoLastTransaction("4253892");
 
 
 		// show balances

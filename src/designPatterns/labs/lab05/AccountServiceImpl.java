@@ -6,8 +6,11 @@ import java.util.Collection;
 public class AccountServiceImpl implements AccountService {
 	private AccountDAO accountDAO;
 
+	private Command lastCommand;
+
 	public AccountServiceImpl(){
 		accountDAO = new AccountDAOImpl();
+		this.lastCommand = new NoCommand();
 	}
 
 	public Account createAccount(String accountNumber, String customerName) {
@@ -23,46 +26,34 @@ public class AccountServiceImpl implements AccountService {
 	public void deposit(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
 
-		// set deposit command
-		Command deposit = new DepositCommand();
-		account.setCommand(deposit);
+		Command deposit = new DepositCommand(account,amount,"Deposit");
+		deposit.execute();
 
-		account.execute(amount,"Deposit");
 		accountDAO.updateAccount(account);
+		this.lastCommand = deposit;
 	}
 
 	public void withdraw(String accountNumber, double amount) {
 		Account account = accountDAO.loadAccount(accountNumber);
 
-		// set withdraw command
-		Command withdraw = new WithdrawCommand();
-		account.setCommand(withdraw);
+		Command withdraw = new WithdrawCommand(account,amount,"Withdraw");
+		withdraw.execute();
 
-		account.execute(amount,"Withdraw");
 		accountDAO.updateAccount(account);
+		this.lastCommand = withdraw;
 	}
 
 	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
 		Account fromAccount = accountDAO.loadAccount(fromAccountNumber);
 		Account toAccount = accountDAO.loadAccount(toAccountNumber);
 
-		// set transfer command
-		Command transfer = new TransferFundsCommand(toAccount);
-		fromAccount.setCommand(transfer);
+		Command transfer = new TransferFundsCommand(fromAccount,toAccount,amount,description);
+		transfer.execute();
 
-		fromAccount.execute(amount, description);
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
-	}
 
-	public void redoLastTransaction(String accountNumber){
-		Account account = accountDAO.loadAccount(accountNumber);
-		account.redo();
-	}
-
-	public void undoLastTransaction(String accountNumber){
-		Account account = accountDAO.loadAccount(accountNumber);
-		account.undo();
+		this.lastCommand = transfer;
 	}
 
 	public Account getAccount(String accountNumber) {
@@ -72,5 +63,21 @@ public class AccountServiceImpl implements AccountService {
 
 	public Collection<Account> getAllAccounts() {
 		return accountDAO.getAccounts();
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public void redo() {
+		this.lastCommand.redo();
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public void undo() {
+		this.lastCommand.undo();
 	}
 }
