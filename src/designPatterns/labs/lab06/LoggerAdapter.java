@@ -1,17 +1,16 @@
 package designPatterns.labs.lab06;
 
+import designPatterns.labs.lab06.log4j.Log4J;
+import designPatterns.labs.lab06.log4j.LogManager;
+
 public class LoggerAdapter implements Logger{
 
-    private final Lock4JMocker log4j;
+    private final Log4J log4j;
 
     LoggerAdapter(String scope){
-        this.log4j = Lock4JMocker.getLogger(scope);
+        this.log4j = LogManager.getLogger(scope);
     }
 
-    /**
-     * @param logLevel
-     * @param message
-     */
     @Override
     public void log(LogLevel logLevel, String message) {
         switch (logLevel){
