@@ -1,19 +1,11 @@
-package designPatterns.labs.lab06;
+package designPatterns.labs.lab06.log4j;
 
-import java.util.HashMap;
-import java.util.Map;
 
-public class Lock4JMocker {
-    private static Map<String,Lock4JMocker> loggerPool = new HashMap<>();
-    private String scope;
+public class Log4J {
+    private final String scope;
 
-    private Lock4JMocker(String scope){
+    Log4J(String scope){
         this.scope = scope;
-    }
-
-    public static Lock4JMocker getLogger(String scope){
-        loggerPool.putIfAbsent(scope,new Lock4JMocker(scope));
-        return loggerPool.get(scope);
     }
 
     public void debug(Object s){
