@@ -17,8 +17,12 @@
 | It executes only once during the entire execution of the program when the class loads into the memory | It can run many times whenever there is a call to the constructor |
 
 
-> The Java compiler copies initializer blocks into every constructor. Therefore, this approach can be used to share a block of code between multiple constructors.
+> The Java compiler copies Instance initializer blocks into every constructor. Therefore, this approach can be used to share a block of code between multiple constructors.
 
+> If `this()` call is made inside a constructor to call another constructor of the same class, the instance initializer blocks are not copied to the 
+> constructor that makes the `this` call.
+
+> Inside a constructor only one explicit constructor call can be made. variation of either `super()` or `this()` call can be made but not both at the same time.
 
 Example:
 
@@ -92,3 +96,15 @@ public class Test {
 }
 
 ```
+
+## this
+-  this is initialized immediately after all static initialization has occurred (and before any instance variables are initialized).
+
+
+## this()
+- used to call one constructor from another within the same class.
+- this must be the first call in the body of constructor.
+- can only be called from constructor.
+- If `this()` call is made, the instance initializer blocks are not copied to that constructor.
+- During Inheritance if `this()` call is made, the constructor will not make `super()` call directly rather the invoked constructor will make the `super()` call.
+- Inside a constructor only one explicit constructor call can be made. variation of either `super()` or `this()` call can be made but not both at the same time.

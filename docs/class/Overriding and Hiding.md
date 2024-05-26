@@ -4,8 +4,10 @@
   that method in child class is called `overriden method and the process is known as overriding`.
 - During inheritance if the child static method has same signature as the static method in parent class, then
   the parent static method is `hidden in child class and the process is known as hiding`.
-- Methods marked with `final` specifier cannot be overriden or hidden in child class
-- If you declare a same static or instance members in a child class, static members are hidden whereas instance members are overridden.
+- Methods marked with `final` specifier cannot be overridden or hidden in child class
+- If you declare a same static or instance members in a child class, static methods, static fields, instance fields
+  are hidden whereas instance methods are overridden.
+- In such scenarios keyword `super` can be used to reference the Immediate parent class members.
 
 ```java
 class Parent{

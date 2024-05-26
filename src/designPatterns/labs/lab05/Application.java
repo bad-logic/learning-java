@@ -1,27 +1,41 @@
 package designPatterns.labs.lab05;
 
+import designPatterns.labs.lab05.commands.Command;
+import designPatterns.labs.lab05.commands.DepositCommand;
+import designPatterns.labs.lab05.commands.TransferFundsCommand;
+import designPatterns.labs.lab05.commands.WithdrawCommand;
+
 public class Application {
 	public static void main(String[] args) {
 		AccountService accountService = new AccountServiceImpl();
 
 		// create 2 accounts;
-		accountService.createAccount("1263862", "Frank Brown");
-		accountService.createAccount("4253892", "John Doe");
+		Account acc1 = accountService.createAccount("1263862", "Frank Brown");
+		Account acc2 = accountService.createAccount("4253892", "John Doe");
+
 		// use account 1;
-		accountService.deposit("1263862", 240);
-		accountService.deposit("1263862", 529);
+		accountService.setCommand(new DepositCommand(acc1,240,"Deposit"));
+		accountService.execute();
+
+		accountService.setCommand(new DepositCommand(acc1,529,"Deposit"));
+		accountService.execute();
 
 		accountService.redo();
 		accountService.undo();
 
-		// withdraw
-		accountService.withdraw("1263862", 230);
-		accountService.redo();
-		accountService.undo();
+		accountService.setCommand(new WithdrawCommand(acc1,230,"Withdraw"));
+		accountService.execute();
+
 		// use account 2;
-		accountService.deposit("4253892", 12450);
-		accountService.transferFunds("4253892", "1263862", 100, "payment of invoice 10232");
+		accountService.setCommand(new DepositCommand(acc2,12450,"Deposit"));
+		accountService.execute();
 
+		Command transfer = new TransferFundsCommand(acc2, acc1,100,"payment of invoice 10232");
+		accountService.setCommand(transfer);
+		accountService.execute();
+
+		accountService.redo();
+		accountService.undo();
 
 		// show balances
 		for (Account account : accountService.getAllAccounts()) {
