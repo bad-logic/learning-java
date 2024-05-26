@@ -7,9 +7,15 @@ Sequence of execution when a constructor is called
     blocks are run in the order in which they appear in the class file.
     (Static fields are initialized only once; static blocks executed only once.)
 2. All instance variables are initialized with their default values
-3. All instance variable initialization is performed and object initialization blocks executed, in the order in which they occur in the class file
-4. If the first line of the constructor calls another constructor, the body of the second constructor is executed
-5. The body of the constructor is executed.
+3. After instance variables are initialized, constructor body is executed.
+4. Inside constructor body java does following:
+    1. if there is `super()` call. which can be implicit ( default constructor ) or explicit, then execution
+        moves to the parent class constructor.
+   2. if there is `this()` call. then the execution will move to the constructor that matches `this()`.
+   3. Object initialization blocks are executed, in the order in which they occur in the class file.
+   4. If there is a `this()` call then the Object initialization blocks are not executed, since java does not copy the
+        initialization blocks to the constructor making `this()` call.
+   5. Remaining constructor code blocks are executed.
 
 ```java
 
