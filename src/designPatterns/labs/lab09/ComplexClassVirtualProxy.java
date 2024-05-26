@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class ComplexClassProxy implements InvocationHandler {
+public class ComplexClassVirtualProxy implements InvocationHandler {
     private ComplexClass object;
 
     /**
@@ -56,11 +56,11 @@ public class ComplexClassProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         try{
+            if(this.object == null){
+                object = new ComplexClass();
+            }
 
             if(method.getName().equals("veryComplicatedTask")){
-                if(this.object == null){
-                    object = new ComplexClass();
-                }
                 return method.invoke(object,args);
             }
 
@@ -71,6 +71,6 @@ public class ComplexClassProxy implements InvocationHandler {
     }
 
     public static ComplexClassInterface getProxy(){
-        return (ComplexClassInterface) Proxy.newProxyInstance(ComplexClass.class.getClassLoader(),ComplexClass.class.getInterfaces(), new ComplexClassProxy());
+        return (ComplexClassInterface) Proxy.newProxyInstance(ComplexClass.class.getClassLoader(),ComplexClass.class.getInterfaces(), new ComplexClassVirtualProxy());
     }
 }
