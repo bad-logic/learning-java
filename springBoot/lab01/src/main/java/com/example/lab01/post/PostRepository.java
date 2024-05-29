@@ -20,32 +20,6 @@ public class PostRepository implements Repository<UUID, Post> {
         return postData;
     }
 
-//    public void addPost(Post postData) {
-//        this.postData.add(postData);
-//    }
-
-//    public Optional<Post> getPost(UUID id) {
-//        return this.postData.stream().filter((x) -> x.getId().equals(id)).findFirst();
-//    }
-
-//    public Post updatePost(UUID id, Post p) {
-//        Optional<Post> prevSnapshot = this.getPost(id);
-//        if (prevSnapshot.isPresent()) {
-//            int index = this.postData.indexOf(prevSnapshot.get());
-//            this.postData.remove(prevSnapshot.get());
-//            this.postData.add(index, p);
-//            return p;
-//        }
-//        return null;
-//    }
-
-//    public void deletePost(UUID id) {
-//        Optional<Post> p = this.getPost(id);
-//        if (p.isPresent()) {
-//            this.postData.remove(p.get());
-//        }
-//    }
-
     @Override
     public void save(Post data) {
         this.postData.add(data);
