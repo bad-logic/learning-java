@@ -16,4 +16,6 @@ public interface UserService {
     List<Post> getPosts(UUID id);
 
     List<User> getUserWithPostsCountGreaterThan(int count);
+
+    List<User> getUsersWithPostTitle(String title);
 }

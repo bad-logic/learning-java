@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserWithPostsCountGreaterThan(int count) {
         return this.userRepository.getUsersWithPostsGreaterThan(count);
     }
+
+    @Override
+    public List<User> getUsersWithPostTitle(String title) {
+        return this.userRepository.getUsersWithPostsTitle(title);
+    }
 }

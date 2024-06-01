@@ -10,8 +10,7 @@ import java.util.UUID;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, UUID> {
-
-    @Query("select u.posts from User u where u.name LIKE %:author%")
-//    @Query("select p FROM Post p JOIN User u ON u.id = p.author_id WHERE u.name = :authorName")
-    public List<Post> findPostsByAuthor(String author);
+    
+    @Query("select p FROM Post p JOIN User u ON u.id = p.authorId WHERE u.name LIKE %:author% and p.title LIKE %:title% ")
+    public List<Post> findPostsByAttributes(String author, String title);
 }

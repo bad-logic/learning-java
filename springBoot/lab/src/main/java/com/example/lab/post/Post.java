@@ -1,7 +1,9 @@
 package com.example.lab.post;
 
+import com.example.lab.comment.Comment;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -19,6 +21,11 @@ public class Post {
     @Column(name = "author_id", insertable = false, updatable = false, nullable = false)
     private UUID authorId;
 
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "post_id", nullable = false)
+    private List<Comment> comments;
+
     public Post() {
     }
 
@@ -33,6 +40,10 @@ public class Post {
         this.id = id;
         this.title = title;
         this.content = content;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
@@ -63,6 +74,18 @@ public class Post {
         return this.authorId;
     }
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public void addComment(Comment comments) {
+        this.comments.add(comments);
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -70,6 +93,7 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", authorId=" + authorId +
+                ", comments=" + comments +
                 '}';
     }
 }
