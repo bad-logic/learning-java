@@ -8,7 +8,7 @@ public interface PostService {
 
     List<Post> getPosts();
 
-    List<Post> getPostsByAuthor(String author);
+    public List<Post> getPostsByAttributes(String author, String title);
 
     Post add(Post p);
 

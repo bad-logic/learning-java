@@ -25,8 +25,8 @@ public class PostServiceImpl implements PostService {
         return this.postRepository.findAll();
     }
 
-    public List<Post> getPostsByAuthor(String author) {
-        return this.postRepository.findPostsByAuthor(author);
+    public List<Post> getPostsByAttributes(String author, String title) {
+        return this.postRepository.findPostsByAttributes(author, title);
     }
 
     public Post add(Post p) {

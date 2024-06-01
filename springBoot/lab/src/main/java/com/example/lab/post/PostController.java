@@ -1,5 +1,10 @@
 package com.example.lab.post;
 
+import com.example.lab.comment.CommentMapper;
+import com.example.lab.comment.CommentRepository;
+import com.example.lab.comment.CommentService;
+import com.example.lab.comment.CommentServiceImpl;
+import com.example.lab.comment.dto.CreateCommentDTO;
 import com.example.lab.common.ErrorResponse;
 import com.example.lab.post.dto.CreatePostDTO;
 import com.example.lab.post.dto.PatchPostDTO;
@@ -21,29 +26,32 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/posts")
 public class PostController {
 
     private final PostServiceImpl postService;
+    private CommentService commentService;
 
     @Autowired
-    PostController(PostServiceImpl postService) {
+    PostController(PostServiceImpl postService, CommentService commentService) {
         this.postService = postService;
+        this.commentService = commentService;
     }
 
     @GetMapping("")
     public ResponseEntity<Map<String, Object>> getAll() {
         Map<String, Object> response = new HashMap<>();
-        response.put("data", this.postService.getPosts());
+        response.put("data", this.postService.getPosts().stream().map(PostMapper::toPostDTO).collect(Collectors.toList()));
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/search")
-    public ResponseEntity<Map<String, Object>> getPostsMadeByAuthor(@DefaultValue("") @RequestParam String author) {
+    public ResponseEntity<Map<String, Object>> getPostsMadeByAuthor(@RequestParam(defaultValue = "") String author, @RequestParam(defaultValue = "") String title) {
         Map<String, Object> response = new HashMap<>();
-        response.put("data", this.postService.getPostsByAuthor(author));
+        response.put("data", this.postService.getPostsByAttributes(author, title).stream().map(PostMapper::toPostDTO).collect(Collectors.toList()));
         return ResponseEntity.ok(response);
     }
 
@@ -106,6 +114,14 @@ public class PostController {
             return new ResponseEntity<>(error, HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
+    }
+
+    @PostMapping("/{id}/comments")
+    public ResponseEntity<?> addComment(@PathVariable @NonNull UUID id, @Valid @RequestBody CreateCommentDTO data) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("data", CommentMapper.toCommentDTO(this.commentService.add(id, CommentMapper.toEntity(data))));
+        response.put("message", "POST successful");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
 }
