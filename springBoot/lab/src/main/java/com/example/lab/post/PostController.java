@@ -1,9 +1,7 @@
 package com.example.lab.post;
 
 import com.example.lab.comment.CommentMapper;
-import com.example.lab.comment.CommentRepository;
 import com.example.lab.comment.CommentService;
-import com.example.lab.comment.CommentServiceImpl;
 import com.example.lab.comment.dto.CreateCommentDTO;
 import com.example.lab.common.ErrorResponse;
 import com.example.lab.post.dto.CreatePostDTO;
@@ -17,7 +15,6 @@ import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +30,7 @@ import java.util.stream.Collectors;
 public class PostController {
 
     private final PostServiceImpl postService;
-    private CommentService commentService;
+    private final CommentService commentService;
 
     @Autowired
     PostController(PostServiceImpl postService, CommentService commentService) {
@@ -44,7 +41,7 @@ public class PostController {
     @GetMapping("")
     public ResponseEntity<Map<String, Object>> getAll() {
         Map<String, Object> response = new HashMap<>();
-        response.put("data", this.postService.getPosts().stream().map(PostMapper::toPostDTO).collect(Collectors.toList()));
+        response.put("data", this.postService.getAll().stream().map(PostMapper::toPostDTO).collect(Collectors.toList()));
         return ResponseEntity.ok(response);
     }
 
@@ -64,16 +61,16 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> getSinglePost(@PathVariable @NonNull UUID id) {
+    public ResponseEntity<Map<String, Object>> getSinglePostById(@PathVariable @NonNull UUID id) {
         Map<String, Object> response = new HashMap<>();
-        response.put("data", PostMapper.toPostDTO((this.postService.getPost(id))));
+        response.put("data", PostMapper.toPostDTO((this.postService.getById(id))));
         return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deletePost(@PathVariable @NonNull UUID id) {
         Map<String, Object> response = new HashMap<>();
-        this.postService.deletePost(id);
+        this.postService.deleteById(id);
         response.put("message", "DELETE successful");
         response.put("data", id);
         return ResponseEntity.ok(response);
@@ -83,7 +80,7 @@ public class PostController {
     public ResponseEntity<?> patchPost(@PathVariable @NonNull UUID id, @RequestBody JsonPatch patch) throws NoResourceFoundException {
 
         try {
-            Post p = this.postService.getPost(id);
+            Post p = this.postService.getById(id);
             System.out.println("post from database: " + p);
 
             if (p != null) {
@@ -97,7 +94,7 @@ public class PostController {
 
                 Map<String, Object> response = new HashMap<>();
                 // inconsistent data return see the issue
-                response.put("data", PostMapper.toPostDTO(this.postService.patchPost(PostMapper.toEntity(id, patchPayload))));
+                response.put("data", PostMapper.toPostDTO(this.postService.patch(PostMapper.toEntity(id, patchPayload))));
                 response.put("message", "PATCH successful");
                 return ResponseEntity.ok(response);
             }

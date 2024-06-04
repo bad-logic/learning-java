@@ -1,13 +1,13 @@
 package com.example.lab.user;
 
 
+import com.example.lab.aop.annotation.ExecutionTime;
 import com.example.lab.comment.CommentMapper;
 import com.example.lab.comment.CommentServiceImpl;
 import com.example.lab.post.PostMapper;
 import com.example.lab.user.dto.CreateUserDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
@@ -34,7 +34,7 @@ public class UserController {
     @GetMapping("")
     public ResponseEntity<Map<String, Object>> getAll() {
         Map<String, Object> response = new HashMap<>();
-        response.put("data", this.userService.getUsers().stream().map(UserMapper::toUserDTO).collect(Collectors.toList()));
+        response.put("data", this.userService.getAll().stream().map(UserMapper::toUserDTO).collect(Collectors.toList()));
         return ResponseEntity.ok(response);
     }
 
@@ -46,11 +46,12 @@ public class UserController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Map<String, Object>> addUser(@Valid @RequestBody CreateUserDTO data) {
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "POST successful");
-        response.put("data", UserMapper.toUserDTO(this.userService.add(UserMapper.toEntity(data))));
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    public ResponseEntity<Map<String, Object>> addUser(@Valid @RequestBody CreateUserDTO data) throws Exception {
+        throw new Exception("unknown exception occured");
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("message", "POST successful");
+//        response.put("data", UserMapper.toUserDTO(this.userService.add(UserMapper.toEntity(data))));
+//        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @GetMapping("/with-more-than-n-post")
@@ -61,9 +62,10 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> getSingleUser(@PathVariable @NonNull UUID id) {
+    @ExecutionTime
+    public ResponseEntity<Map<String, Object>> getSingleUserById(@PathVariable @NonNull UUID id) {
         Map<String, Object> response = new HashMap<>();
-        response.put("data", UserMapper.toUserDTO(this.userService.getUser(id)));
+        response.put("data", UserMapper.toUserDTO(this.userService.getById(id)));
         return ResponseEntity.ok(response);
     }
 
