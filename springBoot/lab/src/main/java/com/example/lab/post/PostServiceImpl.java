@@ -1,5 +1,6 @@
 package com.example.lab.post;
 
+import com.example.lab.common.CustomServiceImpl;
 import com.example.lab.user.User;
 import com.example.lab.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,25 +11,28 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class PostServiceImpl implements PostService {
+public class PostServiceImpl extends CustomServiceImpl<Post, UUID> implements PostService {
 
     private final PostRepository postRepository;
     private final UserRepository userRepository;
 
     @Autowired
     PostServiceImpl(PostRepository postRepository, UserRepository userRepository) {
+        super(postRepository);
         this.postRepository = postRepository;
         this.userRepository = userRepository;
     }
 
-    public List<Post> getPosts() {
-        return this.postRepository.findAll();
-    }
+//    @Override
+//    public List<Post> getAll() {
+//        return this.postRepository.findAll();
+//    }
 
     public List<Post> getPostsByAttributes(String author, String title) {
         return this.postRepository.findPostsByAttributes(author, title);
     }
 
+    @Override
     public Post add(Post p) {
         Optional<User> user = this.userRepository.findById(p.getAuthorId());
         if (user.isPresent()) {
@@ -41,17 +45,17 @@ public class PostServiceImpl implements PostService {
         return null;
     }
 
-    public Post getPost(UUID id) {
-        Optional<Post> post = this.postRepository.findById(id);
-        return post.orElse(null);
-    }
+//    public Post getPost(UUID id) {
+//        Optional<Post> post = this.postRepository.findById(id);
+//        return post.orElse(null);
+//    }
 
-    public void deletePost(UUID id) {
-        this.postRepository.deleteById(id);
-    }
+//    public void deletePost(UUID id) {
+//        this.postRepository.deleteById(id);
+//    }
 
-    public Post patchPost(Post patch) {
-        return this.postRepository.save(patch);
-    }
+//    public Post patchPost(Post patch) {
+//        return this.postRepository.save(patch);
+//    }
 
 }

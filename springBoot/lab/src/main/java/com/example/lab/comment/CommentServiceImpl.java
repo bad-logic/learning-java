@@ -12,8 +12,8 @@ import java.util.UUID;
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    private PostRepository postRepository;
-    private CommentRepository commentRepository;
+    private final PostRepository postRepository;
+    private final CommentRepository commentRepository;
 
     @Autowired
     public CommentServiceImpl(PostRepository postRepository, CommentRepository commentRepository) {
