@@ -14,4 +14,6 @@ public interface UserService extends CustomService<User, UUID> {
     List<User> getUserWithPostsCountGreaterThan(int count);
 
     List<User> getUsersWithPostTitle(String title);
+
+    User getUserByEmail(String email);
 }
