@@ -21,23 +21,6 @@ public class UserServiceImpl extends CustomServiceImpl<User, UUID> implements Us
         this.userRepository = repository;
     }
 
-//    @Override
-//    public User getById(UUID id) {
-//        Optional<User> u = this.userRepository.findById(id);
-//        return u.orElse(null);
-//    }
-
-//    @Override
-//    public List<User> getAll() {
-//        return this.userRepository.findAll();
-//    }
-
-//    @Override
-//    public User add(User p) {
-//        this.userRepository.save(p);
-//        return p;
-//    }
-
     @Override
     public List<Post> getPosts(UUID id) {
         Optional<User> u = this.userRepository.findById(id);
@@ -52,5 +35,10 @@ public class UserServiceImpl extends CustomServiceImpl<User, UUID> implements Us
     @Override
     public List<User> getUsersWithPostTitle(String title) {
         return this.userRepository.getUsersWithPostsTitle(title);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return this.userRepository.findByEmail(email);
     }
 }

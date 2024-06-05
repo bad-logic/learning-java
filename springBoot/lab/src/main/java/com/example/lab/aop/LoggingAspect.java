@@ -18,8 +18,7 @@ public class LoggingAspect {
     @Autowired
     LoggerServiceImpl loggerService;
 
-
-    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
+    @Pointcut("@within(org.springframework.web.bind.annotation.RestController)")
     public void controllerLayer() {
     }
 

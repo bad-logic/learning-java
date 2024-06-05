@@ -4,6 +4,7 @@ import com.example.lab.common.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -48,6 +49,15 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(NoResourceFoundException.class)
     public final ResponseEntity<ErrorResponse<Map<String, String>>> handleNoResourceFoundException(NoResourceFoundException ex, WebRequest request) {
+        System.out.println("error:" + ex.toString());
+        Map<String, String> errors = new HashMap<String, String>();
+        errors.put("detail", "Resource not found");
+        ErrorResponse<Map<String, String>> error = new ErrorResponse<Map<String, String>>(HttpStatus.NOT_FOUND.name(), errors);
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public final ResponseEntity<ErrorResponse<Map<String, String>>> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex, WebRequest request) {
         System.out.println("error:" + ex.toString());
         Map<String, String> errors = new HashMap<String, String>();
         errors.put("detail", "Resource not found");
