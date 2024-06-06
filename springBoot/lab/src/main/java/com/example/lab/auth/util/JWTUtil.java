@@ -18,7 +18,7 @@ public class JWTUtil {
     private AuthService authService;
 
     private final String secret = "@#$@#$DFGSFSDFSDF";
-    private final long expiration = 5 * 60 * 1000; // 5 min
+    private final long expiration = 15 * 60 * 1000; // 15 min
     private final long refExpiration = 5 * 60 * 60 * 1000; // 5 hr
 
     public String generateToken(AuthDetails details) {

@@ -17,16 +17,13 @@ public class CreatePostDTO {
     @Size(min = 2, max = 250, message = "content must be between 2 and 250 characters")
     private String content;
 
-    @NotNull(message = "author_id is mandatory")
-    private UUID author_id;
 
     public CreatePostDTO() {
     }
 
-    public CreatePostDTO(String title, String content, UUID author_id) {
+    public CreatePostDTO(String title, String content) {
         this.title = title;
         this.content = content;
-        this.author_id = author_id;
     }
 
     public void setTitle(String title) {
@@ -37,10 +34,6 @@ public class CreatePostDTO {
         this.content = content;
     }
 
-    public void setAuthor_id(UUID author_id) {
-        this.author_id = author_id;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -49,16 +42,11 @@ public class CreatePostDTO {
         return content;
     }
 
-    public UUID getAuthor_id() {
-        return author_id;
-    }
-
     @Override
     public String toString() {
         return "CreatePostDTO{" +
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", author_id=" + author_id +
                 '}';
     }
 }
