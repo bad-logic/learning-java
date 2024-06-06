@@ -1,6 +1,5 @@
 package com.example.lab.common;
 
-import java.util.stream.Stream;
 
 public enum Roles {
     USER("USER"), ADMIN("ADMIN");
@@ -11,14 +10,12 @@ public enum Roles {
         this.value = value;
     }
 
-    public String getRole() {
+    public String getValue() {
         return value;
     }
 
-    public static Roles of(String role) {
-        return Stream.of(Roles.values())
-                .filter(p -> p.getRole().equals(role))
-                .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+    @Override
+    public String toString() {
+        return value;
     }
 }

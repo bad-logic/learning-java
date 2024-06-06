@@ -1,11 +1,9 @@
 package com.example.lab.auth.dto;
 
-import com.example.lab.common.Roles;
+
 import com.example.lab.common.validation.ValidPassword;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserRegisterDTO {
@@ -21,16 +19,17 @@ public class UserRegisterDTO {
     @ValidPassword
     private String password;
 
-    private Roles role;
+    @Pattern(regexp = "USER|ADMIN")
+    private String role;
 
-    @NotBlank(message = "password is mandatory")
     public UserRegisterDTO() {
     }
 
-    public UserRegisterDTO(String name, String email, String password) {
+    public UserRegisterDTO(String name, String email, String password, String role) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public void setName(String name) {
@@ -57,20 +56,21 @@ public class UserRegisterDTO {
         this.password = password;
     }
 
-    public Roles getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Roles role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
     @Override
     public String toString() {
-        return "CreateUserDTO{" +
+        return "UserRegisterDTO{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

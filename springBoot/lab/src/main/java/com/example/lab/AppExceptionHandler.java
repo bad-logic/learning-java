@@ -12,6 +12,8 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +21,13 @@ import java.util.Map;
 
 @ControllerAdvice
 public class AppExceptionHandler {
+
+    private void logError(Exception ex) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        ex.printStackTrace(pw);
+        System.out.println(sw);
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public final ResponseEntity<ErrorResponse<Map<String, List<String>>>> handleValidationExceptions(MethodArgumentNotValidException ex, WebRequest request) {
@@ -40,7 +49,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<ErrorResponse<Map<String, String>>> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
-        System.out.println("error:" + ex.toString());
+        logError(ex);
         Map<String, String> errors = new HashMap<String, String>();
         errors.put(ex.getName(), "Not a valid " + ex.getName());
         ErrorResponse<Map<String, String>> error = new ErrorResponse<Map<String, String>>(HttpStatus.BAD_REQUEST.name(), errors);
@@ -49,7 +58,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(NoResourceFoundException.class)
     public final ResponseEntity<ErrorResponse<Map<String, String>>> handleNoResourceFoundException(NoResourceFoundException ex, WebRequest request) {
-        System.out.println("error:" + ex.toString());
+        logError(ex);
         Map<String, String> errors = new HashMap<String, String>();
         errors.put("detail", "Resource not found");
         ErrorResponse<Map<String, String>> error = new ErrorResponse<Map<String, String>>(HttpStatus.NOT_FOUND.name(), errors);
@@ -58,7 +67,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public final ResponseEntity<ErrorResponse<Map<String, String>>> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex, WebRequest request) {
-        System.out.println("error:" + ex.toString());
+        logError(ex);
         Map<String, String> errors = new HashMap<String, String>();
         errors.put("detail", "Resource not found");
         ErrorResponse<Map<String, String>> error = new ErrorResponse<Map<String, String>>(HttpStatus.NOT_FOUND.name(), errors);
@@ -67,7 +76,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public final ResponseEntity<ErrorResponse<Map<String, String>>> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex, WebRequest request) {
-        System.out.println("error:" + ex.toString());
+        logError(ex);
         Map<String, String> errors = new HashMap<>();
         errors.put("detail", "unable to parse the request, check the request header or body");
         ErrorResponse<Map<String, String>> error = new ErrorResponse<Map<String, String>>(HttpStatus.BAD_REQUEST.name(), errors);
@@ -76,7 +85,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<ErrorResponse<Map<String, String>>> handleValidationExceptions(Exception ex, WebRequest request) {
-        System.out.println("error:" + ex.toString());
+        logError(ex);
         Map<String, String> errors = new HashMap<String, String>();
         errors.put("detail", "An unexpected error occurred");
         ErrorResponse<Map<String, String>> error = new ErrorResponse<Map<String, String>>(HttpStatus.INTERNAL_SERVER_ERROR.name(), errors);

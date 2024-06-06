@@ -29,39 +29,23 @@ public class User {
     @Column(nullable = false)
     private String role;
 
-    @Transient
-    private Roles roleHolder;
-
-    @PrePersist
-    void fillPersistent() {
-        if (role != null) {
-            this.role = roleHolder.getRole();
-        }
-    }
-
-    @PostLoad
-    void fillTransient() {
-        if (role != null) {
-            this.roleHolder = Roles.of(role);
-        }
-    }
 
     public User() {
     }
 
-    public User(String name, String email, String password, Roles role) {
+    public User(String name, String email, String password, String role) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.roleHolder = role;
+        this.role = role;
     }
 
-    public User(UUID id, String name, String email, String password, Roles role) {
+    public User(UUID id, String name, String email, String password, String role) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.roleHolder = role;
+        this.role = role;
     }
 
     public void setId(UUID id) {
@@ -97,11 +81,11 @@ public class User {
     }
 
     public Roles getRole() {
-        return roleHolder;
+        return Roles.valueOf(role);
     }
 
     public void setRole(Roles role) {
-        this.roleHolder = role;
+        this.role = role.getValue();
     }
 
     public List<Post> getPosts() {

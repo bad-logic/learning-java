@@ -1,5 +1,6 @@
 package com.example.lab.post;
 
+import com.example.lab.auth.AuthDetails;
 import com.example.lab.comment.CommentMapper;
 import com.example.lab.comment.CommentService;
 import com.example.lab.comment.dto.CreateCommentDTO;
@@ -19,6 +20,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
@@ -53,10 +57,20 @@ public class PostController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Map<String, Object>> savePost(@Valid @RequestBody CreatePostDTO p) {
+    public ResponseEntity<?> savePost(@Valid @RequestBody CreatePostDTO p) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> response = new HashMap<>();
+
+        if (authentication == null || !(authentication.getPrincipal() instanceof UserDetails)) {
+            response.put("message", "Cannot create Post");
+            ErrorResponse<Map<String, Object>> error = new ErrorResponse<Map<String, Object>>(HttpStatus.BAD_REQUEST.name(), response);
+            return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        }
+        AuthDetails currentUser = (AuthDetails) authentication.getPrincipal();
+        Post newPost = PostMapper.toEntity(p);
+        newPost.setAuthorId(currentUser.getId());
         response.put("message", "POST successful");
-        response.put("data", PostMapper.toPostDTO(this.postService.add(PostMapper.toEntity(p))));
+        response.put("data", PostMapper.toPostDTO(this.postService.add(newPost)));
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 

@@ -13,7 +13,6 @@ public class PostMapper {
         Post post = new Post();
         post.setTitle(p.getTitle());
         post.setContent(p.getContent());
-        post.setAuthorId(p.getAuthor_id());
         return post;
     }
 
