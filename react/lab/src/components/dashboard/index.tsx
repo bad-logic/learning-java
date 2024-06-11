@@ -32,10 +32,12 @@ const Dashboard: React.FC = () => {
   const updateTitleForFirstElement = () => {
     setData((data) => {
       const newData = [...data];
-      newData[0].title = title;
+      if (title.trim()) {
+        newData[0].title = title;
+        setTitle('');
+      }
       return newData;
     });
-    setTitle('');
   };
 
   return (
