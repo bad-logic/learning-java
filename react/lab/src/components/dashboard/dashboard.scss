@@ -1,0 +1,22 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex-wrap: wrap;
+
+  &-form {
+    display: flex;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input {
+      min-width: 215px;
+      padding: 3px;
+    }
+    button {
+      padding: 3px;
+    }
+  }
+}
