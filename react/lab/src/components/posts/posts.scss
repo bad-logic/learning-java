@@ -3,3 +3,27 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.post-editor {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid gray;
+  padding: 10px;
+  position: relative;
+
+  input,
+  textarea {
+    padding: 10px;
+  }
+
+  &--close-btn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+}
