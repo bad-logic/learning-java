@@ -32,3 +32,5 @@ bin/
 .settings/
 .idea/
 *.iml
+
+node_modules
