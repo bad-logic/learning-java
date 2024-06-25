@@ -1,0 +1,17 @@
+version: "3"
+
+volumes:
+  data:
+
+services:
+  database:
+    image: postgres
+    container_name: postgres-container
+    environment:
+      POSTGRES_DB: spring-boot
+      POSTGRES_PASSWORD: spring-boot@123
+      POSTGRES_USER: postgres-user
+    ports:
+      - '5432:5432'
+    volumes:
+      - data:/var/lib/postgresql/data
