@@ -32,5 +32,6 @@ bin/
 .settings/
 .idea/
 *.iml
+target
 
 node_modules
