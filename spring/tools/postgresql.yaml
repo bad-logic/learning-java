@@ -4,7 +4,7 @@ volumes:
   pg_data:
 
 services:
-  database:
+  postgres-database:
     image: postgres
     container_name: postgres-container
     environment:
