@@ -1,0 +1,17 @@
+version: "3"
+
+volumes:
+  mongo_data:
+
+services:
+  mongo-database:
+    image: mongo
+    container_name: mongo-container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoUser
+      MONGO_INITDB_ROOT_PASSWORD: mongoUser123
+      MONGO_INITDB_DATABASE: dbtraining
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
