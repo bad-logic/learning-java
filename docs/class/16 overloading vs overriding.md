@@ -1,20 +1,15 @@
 ## Overloading vs Overriding
 
-[reference](https://www.digitalocean.com/community/tutorials/overriding-vs-overloading-in-java)
-
+<a href="https://www.digitalocean.com/community/tutorials/overriding-vs-overloading-in-java" target="_blank">reference</a>
 > Overriding occurs when the method signature is the same in the superclass and the child class. Overloading occurs when two or more methods in the same class have the same name but different parameters.
 
 | Overriding | Overloading |
 | -------- | ------- |
 | Implements “runtime polymorphism”	 | Implements “compile time polymorphism”|
-| The method call is determined at runtime based on the object type	 | The method call is determined at compile time
-|
-| Occurs between superclass and subclass	 | Occurs between the methods in the same class
-|
-| Have the same signature (name and method arguments) | Have the same name, but the parameters are different
-|
-| On error, the effect will be visible at runtime	 | On error, it can be caught at compile time
-|
+| The method call is determined at runtime based on the object type	 | The method call is determined at compile time|
+| Occurs between superclass and subclass	 | Occurs between the methods in the same class|
+| Have the same signature (name and method arguments) | Have the same name, but the parameters are different|
+| On error, the effect will be visible at runtime	 | On error, it can be caught at compile time|
 
 Example: 
 ```java
