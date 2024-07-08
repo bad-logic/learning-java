@@ -19,8 +19,12 @@
 
 ```java
 
-Integer a = Integer.valueOf(5);
-Integer b = 8;
-int c = b.intValue();
+    Integer a = Integer.valueOf(5);
+    Integer b = 8;
+    int c = b.intValue();
 
 ```
+
+#### Boxed Primitive Methods
+- Integer.parseInt(), Double.parseDouble()
+- compareTo - works the same way as [string](../fundamentals/17.%20String.md)

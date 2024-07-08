@@ -29,7 +29,7 @@ public class Rectangle{
     double length;
     double width;
    
-		// default constructor
+	// default constructor
     public Rectangle() {
     }
 }
@@ -59,7 +59,7 @@ public class Rectangle{
 
 The `this` keyword inside a class methods refers to the object that is invoking the methods.
 
-Information (Data) Hiding :
+### Information (Data) Hiding :
 
 | Access Modifiers → | private  | protected | default | public |
 | --- | --- | --- | --- | --- |
@@ -89,7 +89,8 @@ Information (Data) Hiding :
 
 
 ### Static Fields:
-- They are created in static storage a.k.a method area.
+
+- They are created in static storage a.k.a ( method area or Permben or metaspace).
 - it uses the keyword `static`  as a part of the declaration.
 - A value for static variable is shared among all instances of the class.
 - Lifecycle begins as the class in loaded in the memory and ends when the program exits.
