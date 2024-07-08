@@ -14,8 +14,9 @@ we do not write syntax that declares this fact.
 
 > All (instance + static) members except private members of parents are inherited in child class
 
-> In inheritance if super() is not called inside child constructor, java adds this call as the fist statement
+> In inheritance if super() is not called inside child constructor, java adds this call as the first statement
 > in the constructor of the child class
+
 ```java
 class Parent{
     private String id;
