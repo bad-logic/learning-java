@@ -7,14 +7,10 @@
 | Overriding | Overloading |
 | -------- | ------- |
 | Implements “runtime polymorphism”	 | Implements “compile time polymorphism”|
-| The method call is determined at runtime based on the object type	 | The method call is determined at compile time
-|
-| Occurs between superclass and subclass	 | Occurs between the methods in the same class
-|
-| Have the same signature (name and method arguments) | Have the same name, but the parameters are different
-|
-| On error, the effect will be visible at runtime	 | On error, it can be caught at compile time
-|
+| The method call is determined at runtime based on the object type	 | The method call is determined at compile time|
+| Occurs between superclass and subclass	 | Occurs between the methods in the same class|
+| Have the same signature (name and method arguments) | Have the same name, but the parameters are different|
+| On error, the effect will be visible at runtime	 | On error, it can be caught at compile time|
 
 Example: 
 ```java
