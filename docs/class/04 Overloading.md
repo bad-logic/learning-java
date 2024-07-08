@@ -8,6 +8,7 @@
 > To say a method is overloaded, there must be at least two methods in a class having the same name but different signature.
 > The signature of a method is the combination of the method's name along with the number and types of the parameters , and the order in which they occur.
 
+- In addition to overloading normal methods, java allows the constructor to be overloaded.
 - It is one of the way to support polymorphism in java.
 
 ### Order of overloaded methods
@@ -26,7 +27,17 @@ Java will look for match in the following order if exact match is not found.
 import java.util.Arrays;
 
 public class Processor {
+    int cores;
+    
+    // constructor overloading
+    public Processor(){}
+    
+    public Processor(int cores){
+        this.cores = cores;
+    }
 
+    
+    // overloading process method
     public void process(int i, int j) {
         System.out.println("Processing two integers: "+ i + ", "+ j);
     }
