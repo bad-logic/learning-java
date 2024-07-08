@@ -120,3 +120,57 @@ public class RockBottom extends Top{
     }
 }
 ```
+
+## Dynamic Method Dispatch
+> dynamic method dispatch is a mechanism by which a call to an overrriden method is resolved at run time
+> rather than on compile time. this is how java implements run time polymorphism.
+
+
+> A super class reference variable can refer to a subclass object <i><b>Parent p = new Child()</b></i>. java uses this
+> fact to resolve calls to overridden methods at run time. when an overridden method is called through a superclass
+> reference, java determines which version of that method to execute based upon the type of the object being referred to
+> at the time the call occurs. Thus, this determination is made at run time. when different types of objects are referred
+> to, different versions of an overridden method will be called. In other words, it is the type of the object being 
+> referred to ( not the type of the reference variable) that determines which version of an overridden method will be
+> executed. Therefore if a super class contains a method that is overridden by a subclass, then when different types
+> of objects are referred to through a superclass reference variable, different versions of the method are executed.
+
+```java
+
+class A{
+    void callme(){
+      System.out.println("A's callme method");
+    }
+}
+
+class B extends A{
+    void callme(){
+      System.out.println("B's callme method");
+    }
+}
+
+class C extends A{
+  void callme(){
+    System.out.println("C's callme method");
+  }
+}
+
+class Main{
+    public static void main(String[] args){
+        A a = new A(); // object of type A
+        B b = new B(); // object of type B
+        C c = new C(); // object of type C
+      
+      A r; // reference of type A
+      
+      r = a; // r refers to object of type A
+      r.callme(); // calls A's callme method
+      
+      r = b; // r refers to object of type B
+      r.callme(); // calls B's callme method
+      
+      r = c; // r refers to object of type C
+      r.callme(); // calls C's callme method
+    }
+}
+```
