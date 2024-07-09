@@ -10,5 +10,15 @@ services:
     ports:
       - "9092:9092"
 
+  kafka-magic-ui:
+    container_name: kafka_magic_container
+    image: digitsy/kafka-magic
+    networks:
+      - kafka_network
+    ports:
+      - "8080:80"
+    depends_on:
+      - kafka1
+
 networks:
   kafka_network:
