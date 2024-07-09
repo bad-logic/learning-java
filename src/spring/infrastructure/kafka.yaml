@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  kafka1:
+    image: apache/kafka
+    hostname: kafka1
+    container_name: kafka1_container
+    networks:
+      - kafka_network
+    ports:
+      - "9092:9092"
+
+networks:
+  kafka_network:
