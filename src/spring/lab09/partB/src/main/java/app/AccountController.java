@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/accounts")
 public class AccountController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class AccountController {
         return new ResponseEntity<AccountDTO>(this.accountService.deposit(data), HttpStatus.OK);
     }
 
-    @PostMapping("withdraw")
+    @PostMapping("/withdraw")
     public ResponseEntity<AccountDTO> withdraw(@RequestBody @Valid TransactionDTO data) throws RestException {
         return new ResponseEntity<AccountDTO>(this.accountService.withdraw(data), HttpStatus.OK);
     }
