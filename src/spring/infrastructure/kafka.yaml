@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  kafka1:
+    image: apache/kafka
+    hostname: kafka1
+    container_name: kafka1_container
+    networks:
+      - kafka_network
+    ports:
+      - "9092:9092"
+
+  kafka-magic-ui:
+    container_name: kafka_magic_container
+    image: digitsy/kafka-magic
+    networks:
+      - kafka_network
+    ports:
+      - "8080:80"
+    depends_on:
+      - kafka1
+
+networks:
+  kafka_network:

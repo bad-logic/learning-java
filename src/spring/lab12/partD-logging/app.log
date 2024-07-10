@@ -1,0 +1,46 @@
+2024-07-09 21:58:42 -com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Shutdown initiated...
+2024-07-09 21:58:42 -com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Shutdown completed.
+2024-07-09T21:58:43.966-05:00  INFO 60414 --- [LoggingTestServer] [main] bank.Application                         : Starting Application using Java 21.0.2 with PID 60414 (/Users/bad-logic/source/projects/learning-java/src/spring/lab12/partD-logging/target/classes started by bad-logic in /Users/bad-logic/source/projects/learning-java/src/spring/lab12/partD-logging)
+2024-07-09T21:58:43.966-05:00 DEBUG 60414 --- [LoggingTestServer] [main] bank.Application                         : Running with Spring Boot v3.3.1, Spring v6.1.10
+2024-07-09T21:58:43.966-05:00  INFO 60414 --- [LoggingTestServer] [main] bank.Application                         : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T21:58:44.407-05:00  INFO 60414 --- [LoggingTestServer] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-09T21:58:44.407-05:00  INFO 60414 --- [LoggingTestServer] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-09T21:58:44.420-05:00  INFO 60414 --- [LoggingTestServer] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-09T21:58:44.476-05:00  INFO 60414 --- [LoggingTestServer] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-09T21:58:44.494-05:00  INFO 60414 --- [LoggingTestServer] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-09T21:58:44.503-05:00  INFO 60414 --- [LoggingTestServer] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-09T21:58:44.602-05:00  INFO 60414 --- [LoggingTestServer] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-09T21:58:44.662-05:00  INFO 60414 --- [LoggingTestServer] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3739f3c9
+2024-07-09T21:58:44.663-05:00  INFO 60414 --- [LoggingTestServer] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-09T21:58:45.002-05:00  INFO 60414 --- [LoggingTestServer] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-09T21:58:45.404-05:00  INFO 60414 --- [LoggingTestServer] [main] bank.Application                         : Started Application in 1.569 seconds (process running for 1.8)
+2024-07-09T21:58:45.438-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-09T21:58:45.472-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-1] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.505-05:00 TRACE 60414 --- [LoggingTestServer] [http-nio-8080-exec-1] bank.service.AccountService              : createAccount with parameters accountNumber= 1 , customerName= Frank
+2024-07-09T21:58:45.505-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-1] bank.aop.serviceTimerAOP                 : Time Taken to execute createAccount = 33ms
+2024-07-09T21:58:45.514-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-2] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.519-05:00 TRACE 60414 --- [LoggingTestServer] [http-nio-8080-exec-2] bank.service.AccountService              : createAccount with parameters accountNumber= 2 , customerName= John
+2024-07-09T21:58:45.519-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-2] bank.aop.serviceTimerAOP                 : Time Taken to execute createAccount = 5ms
+2024-07-09T21:58:45.527-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.aop.DaoLoggerAOP                    : calling method findById
+2024-07-09T21:58:45.541-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.550-05:00 TRACE 60414 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.service.AccountService              : deposit with parameters accountNumber= 1 , amount= 345.99
+2024-07-09T21:58:45.550-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.aop.serviceTimerAOP                 : Time Taken to execute deposit = 23ms
+2024-07-09T21:58:45.550-05:00  INFO 60414 --- [LoggingTestServer] [task-1] bank.events.Listeners                    : EMAIL: EVENT: DEPOSIT, AMOUNT: 345.99, Acc: 1
+2024-07-09T21:58:45.550-05:00  INFO 60414 --- [LoggingTestServer] [task-1] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.554-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.aop.DaoLoggerAOP                    : calling method findById
+2024-07-09T21:58:45.554-05:00  INFO 60414 --- [LoggingTestServer] [task-1] bank.aop.serviceTimerAOP                 : Time Taken to execute addTraceRecord = 4ms
+2024-07-09T21:58:45.556-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.560-05:00 TRACE 60414 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.service.AccountService              : deposit with parameters accountNumber= 2 , amount= 300.0
+2024-07-09T21:58:45.560-05:00  INFO 60414 --- [LoggingTestServer] [task-2] bank.events.Listeners                    : EMAIL: EVENT: DEPOSIT, AMOUNT: 300.0, Acc: 2
+2024-07-09T21:58:45.560-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.aop.serviceTimerAOP                 : Time Taken to execute deposit = 5ms
+2024-07-09T21:58:45.560-05:00  INFO 60414 --- [LoggingTestServer] [task-2] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.562-05:00  INFO 60414 --- [LoggingTestServer] [task-2] bank.aop.serviceTimerAOP                 : Time Taken to execute addTraceRecord = 2ms
+2024-07-09T21:58:45.563-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.aop.DaoLoggerAOP                    : calling method findById
+2024-07-09T21:58:45.564-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.567-05:00 TRACE 60414 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.service.AccountService              : withdraw with parameters accountNumber= 1 , amount= 200.0
+2024-07-09T21:58:45.567-05:00  INFO 60414 --- [LoggingTestServer] [task-3] bank.events.Listeners                    : EMAIL: EVENT: WITHDRAW, AMOUNT: 200.0, Acc: 1
+2024-07-09T21:58:45.567-05:00  INFO 60414 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.aop.serviceTimerAOP                 : Time Taken to execute withdraw = 4ms
+2024-07-09T21:58:45.567-05:00  INFO 60414 --- [LoggingTestServer] [task-3] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-09T21:58:45.568-05:00  INFO 60414 --- [LoggingTestServer] [task-3] bank.aop.serviceTimerAOP                 : Time Taken to execute addTraceRecord = 1ms
+2024-07-09T21:59:19.952-05:00  INFO 60414 --- [LoggingTestServer] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-09T21:59:19.952-05:00  INFO 60414 --- [LoggingTestServer] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
