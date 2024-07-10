@@ -1,8 +1,10 @@
-package app;
+package bank.controller;
 
-import app.dto.AccountDTO;
-import app.dto.CreateAccountDTO;
-import app.dto.TransactionDTO;
+import bank.common.RestException;
+import bank.dtos.AccountDTO;
+import bank.dtos.CreateAccountDTO;
+import bank.dtos.TransactionDTO;
+import bank.service.AccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,13 +16,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/accounts")
 public class AccountController {
-
     @Autowired
     private AccountService accountService;
 
     @GetMapping
     public ResponseEntity<List<AccountDTO>> getAccounts(){
-        return new ResponseEntity<List<AccountDTO>>(this.accountService.getAccounts(), HttpStatus.OK);
+        return new ResponseEntity<List<AccountDTO>>(this.accountService.getAllAccounts(), HttpStatus.OK);
     }
 
     @PostMapping
@@ -29,13 +30,14 @@ public class AccountController {
     }
 
     @PostMapping("/deposit")
-    public ResponseEntity<AccountDTO> deposit(@RequestBody @Valid TransactionDTO data) throws RestException {
-        return new ResponseEntity<AccountDTO>(this.accountService.deposit(data), HttpStatus.OK);
+    public ResponseEntity<TransactionDTO> deposit(@RequestBody @Valid TransactionDTO data) throws RestException {
+        this.accountService.deposit(data);
+        return new ResponseEntity<TransactionDTO>(data, HttpStatus.OK);
     }
 
     @PostMapping("/withdraw")
-    public ResponseEntity<AccountDTO> withdraw(@RequestBody @Valid TransactionDTO data) throws RestException {
-        return new ResponseEntity<AccountDTO>(this.accountService.withdraw(data), HttpStatus.OK);
+    public ResponseEntity<TransactionDTO> withdraw(@RequestBody @Valid TransactionDTO data) throws RestException {
+        this.accountService.withdraw(data);
+        return new ResponseEntity<TransactionDTO>(data, HttpStatus.OK);
     }
-
 }

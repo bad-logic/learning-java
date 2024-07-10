@@ -1,0 +1,17 @@
+version: "3"
+
+volumes:
+  activemq_data:
+
+services:
+  activemq_service:
+    image: apache/activemq-artemis
+    container_name: activemq-container
+    environment:
+      ARTEMIS_USER: user
+      ARTEMIS_PASSWORD: password123
+    ports:
+      - '61616:61616'
+      - '8161:8161'
+    volumes:
+      - activemq_data:/var/lib/artemis-instance

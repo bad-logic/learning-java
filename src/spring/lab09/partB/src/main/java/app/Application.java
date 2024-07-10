@@ -17,10 +17,6 @@ import java.util.List;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner{
-	
-	@Autowired
-	AccountRepository accountRepository;
-
 	private RestTemplate restTemplate = new RestTemplate();
 
 
@@ -31,7 +27,7 @@ public class Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		String serverUrl = "http://localhost:8080/account";
+		String serverUrl = "http://localhost:8080/accounts";
 
 		System.out.println("----------------- adding accounts ------------------");
 		restTemplate.postForLocation(serverUrl, new CreateAccountDTO("Frank"));
