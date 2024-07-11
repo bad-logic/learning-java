@@ -1,0 +1,16 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus_service:9090/
+    uid: "T56GZDF67vYK"
+    jsonData:
+      httpMethod: POST
+      manageAlerts: true
+      prometheusType: Prometheus
+      prometheusVersion: 2.44.0
+      cacheLevel: 'Low'
+      disableRecordingRules: false
+      incrementalQueryOverlapWindow: 10m
