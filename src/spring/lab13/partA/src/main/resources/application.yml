@@ -1,14 +1,3 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/dbtraining
-    username: postgres-user
-    password: spring-boot@123
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create
-
 management:
   endpoints:
     web:
