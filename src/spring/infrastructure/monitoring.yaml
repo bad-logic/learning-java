@@ -1,0 +1,35 @@
+version: "3"
+
+networks:
+  monitoring_network:
+
+volumes:
+  prometheus-data:
+  grafana-data:
+
+services:
+  prometheus_service:
+    image: prom/prometheus
+    container_name: prometheus_container
+    networks:
+      - monitoring_network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    volumes:
+      - prometheus-data:/prometheus:rw
+      - ./configs/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+
+  grafana_service:
+    image: grafana/grafana-enterprise
+    container_name: grafana_container
+    networks:
+      - monitoring_network
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana:rw
+      - ./configs/grafanads/:/etc/grafana/provisioning/datasources/:ro
+      - ./configs/dashboards/:/etc/grafana/provisioning/dashboards/:ro
+      - ./configs/dashboardDefinitions/:/var/lib/grafana/dashboards:ro

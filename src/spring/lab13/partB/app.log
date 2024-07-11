@@ -1,0 +1,35 @@
+2024-07-10T20:44:38.624-05:00  INFO 77609 --- [LoggingTestServer] [main] bank.Application                         : Starting Application using Java 21.0.2 with PID 77609 (/Users/bad-logic/source/projects/learning-java/src/spring/lab13/partB/target/classes started by bad-logic in /Users/bad-logic/source/projects/learning-java/src/spring/lab13/partB)
+2024-07-10T20:44:38.625-05:00 DEBUG 77609 --- [LoggingTestServer] [main] bank.Application                         : Running with Spring Boot v3.3.1, Spring v6.1.10
+2024-07-10T20:44:38.625-05:00  INFO 77609 --- [LoggingTestServer] [main] bank.Application                         : No active profile set, falling back to 1 default profile: "default"
+2024-07-10T20:44:39.071-05:00  INFO 77609 --- [LoggingTestServer] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T20:44:39.071-05:00  INFO 77609 --- [LoggingTestServer] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-10T20:44:39.100-05:00  INFO 77609 --- [LoggingTestServer] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-10T20:44:39.165-05:00  INFO 77609 --- [LoggingTestServer] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-10T20:44:39.192-05:00  INFO 77609 --- [LoggingTestServer] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-10T20:44:39.206-05:00  INFO 77609 --- [LoggingTestServer] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-10T20:44:39.344-05:00  INFO 77609 --- [LoggingTestServer] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-10T20:44:39.412-05:00  INFO 77609 --- [LoggingTestServer] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@b5de9ac
+2024-07-10T20:44:39.413-05:00  INFO 77609 --- [LoggingTestServer] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-10T20:44:39.761-05:00  INFO 77609 --- [LoggingTestServer] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-10T20:44:40.123-05:00  INFO 77609 --- [LoggingTestServer] [main] bank.Application                         : Started Application in 1.645 seconds (process running for 1.895)
+2024-07-10T20:44:40.161-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-10T20:44:40.191-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-1] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-10T20:44:40.228-05:00 TRACE 77609 --- [LoggingTestServer] [http-nio-8080-exec-1] bank.service.AccountService              : createAccount with parameters accountNumber= 1 , customerName= Frank
+2024-07-10T20:44:40.228-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-1] bank.aop.serviceTimerAOP                 : Time Taken to execute createAccount = 37ms
+2024-07-10T20:44:40.237-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-2] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-10T20:44:40.242-05:00 TRACE 77609 --- [LoggingTestServer] [http-nio-8080-exec-2] bank.service.AccountService              : createAccount with parameters accountNumber= 2 , customerName= John
+2024-07-10T20:44:40.242-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-2] bank.aop.serviceTimerAOP                 : Time Taken to execute createAccount = 4ms
+2024-07-10T20:44:40.250-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.aop.DaoLoggerAOP                    : calling method findById
+2024-07-10T20:44:40.261-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-10T20:44:40.270-05:00 TRACE 77609 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.service.AccountService              : deposit with parameters accountNumber= 1 , amount= 345.99
+2024-07-10T20:44:40.270-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-3] bank.aop.serviceTimerAOP                 : Time Taken to execute deposit = 20ms
+2024-07-10T20:44:40.273-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.aop.DaoLoggerAOP                    : calling method findById
+2024-07-10T20:44:40.275-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-10T20:44:40.279-05:00 TRACE 77609 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.service.AccountService              : deposit with parameters accountNumber= 2 , amount= 300.0
+2024-07-10T20:44:40.279-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-4] bank.aop.serviceTimerAOP                 : Time Taken to execute deposit = 5ms
+2024-07-10T20:44:40.282-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.aop.DaoLoggerAOP                    : calling method findById
+2024-07-10T20:44:40.284-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.aop.DaoLoggerAOP                    : calling method save
+2024-07-10T20:44:40.287-05:00 TRACE 77609 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.service.AccountService              : withdraw with parameters accountNumber= 1 , amount= 200.0
+2024-07-10T20:44:40.287-05:00  INFO 77609 --- [LoggingTestServer] [http-nio-8080-exec-5] bank.aop.serviceTimerAOP                 : Time Taken to execute withdraw = 5ms
+2024-07-10T20:57:04.643-05:00  INFO 77609 --- [LoggingTestServer] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-10T20:57:04.645-05:00  INFO 77609 --- [LoggingTestServer] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
