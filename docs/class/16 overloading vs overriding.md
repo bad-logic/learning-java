@@ -50,5 +50,5 @@ class MathProcessor extends Processor {
 }
 ```
 
-In the above examples all methods decorated with @Override in the subclass are overriden methods, while the process methods 
+In the above examples all methods decorated with @Override in the subclass are overridden methods, while the process methods 
 inside Processor class with different parameters are overloaded.
