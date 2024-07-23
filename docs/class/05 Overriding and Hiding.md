@@ -131,8 +131,8 @@ public class RockBottom extends Top{
 > reference, java determines which version of that method to execute based upon the type of the object being referred to
 > at the time the call occurs. Thus, this determination is made at run time. when different types of objects are referred
 > to, different versions of an overridden method will be called. In other words, it is the type of the object being 
-> referred to ( not the type of the reference variable) that determines which version of an overridden method will be
-> executed. Therefore if a super class contains a method that is overridden by a subclass, then when different types
+> referred to ( not the type of the reference variable ) that determines which version of an overridden method will be
+> executed. Therefore, if a super class contains a method that is overridden by a subclass, then when different types
 > of objects are referred to through a superclass reference variable, different versions of the method are executed.
 
 ```java
