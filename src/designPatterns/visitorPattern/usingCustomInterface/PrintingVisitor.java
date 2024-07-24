@@ -7,7 +7,7 @@ public class PrintingVisitor implements Visitor{
      */
     @Override
     public void visit(Component c) {
-        System.out.println("--- file >>  "+ c.getName());
+        System.out.println("--- component >>  "+ c.getName());
     }
 
     public void visit(File c) {
