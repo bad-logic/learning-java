@@ -49,3 +49,11 @@
   [16. overloading vs overriding](docs/class/16%20overloading%20vs%20overriding.md)<br>
   [17. Dynamic Binding vs Static Binding](docs/class/17%20Dynamic%20Binding%20vs%20Static%20Binding.md)<br>
   [18. Java: call by value not call by reference](/docs/class/18%20java%20call%20by%20value%20not%20call%20by%20reference.md)<br>
+
+- Annotations
+  [01. Introduction](docs/Annotations/01.%20Annotations.md)
+  [02. Annotations with Reflection](docs/Annotations/02.%20Annotations%20with%20Reflection.md)
+  [03. Default Values for Annotations](docs/Annotations/03.%20Default%20Values%20for%20Annotations.md)
+  [04. Marker Annotations](docs/Annotations/04.%20Marker%20Annotation.md)
+  [05. Single Member Annotations](docs/Annotations/05.%20Single%20Member%20Annotation.md)
+  [06. Repeating Annotations](docs/Annotations/06.%20Repeating%20Annotations.md)
