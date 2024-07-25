@@ -27,7 +27,6 @@
   [23. Jump Statements](/docs/fundamentals/23.%20Jump%20Statements.md)<br>
   [24. Type inference with local variables ](/docs/fundamentals/24.%20Type%20inference%20with%20local%20variables.md)<br>
   [25. vargargs](/docs/fundamentals/25.%20varargs.md)<br>
-  [26. AutoBoxCache]()<br>
 
 
 - CLASSES AND OBJECTS<br>
@@ -57,3 +56,12 @@
   [04. Marker Annotations](docs/Annotations/04.%20Marker%20Annotation.md)<br>
   [05. Single Member Annotations](docs/Annotations/05.%20Single%20Member%20Annotation.md)<br>
   [06. Repeating Annotations](docs/Annotations/06.%20Repeating%20Annotations.md)<br>
+
+- Exception Handling<br>
+
+- Generics<br>
+
+- Collections<br>
+
+- Extras<br>
+  [01. AutoBoxCache](/docs/extras/01.%20AutoBoxCache.md)<br>
