@@ -49,6 +49,8 @@
   [17. Dynamic Binding vs Static Binding](docs/class/17%20Dynamic%20Binding%20vs%20Static%20Binding.md)<br>
   [18. Java: call by value not call by reference](/docs/class/18%20java%20call%20by%20value%20not%20call%20by%20reference.md)<br>
   [19. AutoBoxCache](/docs/class/19.%20AutoBoxCache.md)<br>
+  [20. Exceptions](/docs/class/20.%20Exception.md)<br>
+
 
 - Annotations<br>
   [01. Introduction](docs/Annotations/01.%20Annotations.md)<br>
