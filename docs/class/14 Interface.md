@@ -86,7 +86,16 @@ interface Test1{
 
 ```
 
+### Handling Method Clash
+1. **_Interface vs Interface_**: when two interfaces have a method with same signature and one of them is a default method,
+    - any implementer of both interfaces must override the method or declare the method abstract.
+    - any sub interface of both interfaces must provide a default method or declare the method abstract.
+2. **_SuperClass vs Interface_**: when a class extends a superclass and implements an interface, and both the super class and the interface have a method with same signature, the superclass implementation wins! this is the version inherited in the subclass.
+3. **_Same Static methods_**: No clash
+
+
 ### Type of interfaces
+
  - functional Interface : interface with just one abstract methods, methods matching the signature from Object class does not count.
   
 ```java

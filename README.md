@@ -60,7 +60,6 @@
   [05. Single Member Annotations](docs/Annotations/05.%20Single%20Member%20Annotation.md)<br>
   [06. Repeating Annotations](docs/Annotations/06.%20Repeating%20Annotations.md)<br>
 
-- Exception Handling<br>
 
 - Generics<br>
 
