@@ -2,7 +2,9 @@
 
 ### Table Of Contents
 
-- FUNDAMENTALS<br>
+<details>
+  <summary> FUNDAMENTALS </summary>
+  
   [01. Introduction](/docs/fundamentals/01.%20Introduction.md)<br>
   [02. JDK vs DRE vs JVM](/docs/fundamentals/02.%20JDKVsJREVsJVM.md)<br>
   [03. JVM (Java Virtual Machine)](/docs/fundamentals/03.%20JVM%20(%20Java%20Virtual%20Machine%20).md)<br>
@@ -27,9 +29,11 @@
   [23. Jump Statements](/docs/fundamentals/23.%20Jump%20Statements.md)<br>
   [24. Type inference with local variables ](/docs/fundamentals/24.%20Type%20inference%20with%20local%20variables.md)<br>
   [25. vargargs](/docs/fundamentals/25.%20varargs.md)<br>
+</details>
+<br>
+<details>
+<summary> CLASSES AND OBJECTS </summary> 
 
-
-- CLASSES AND OBJECTS<br>
   [01. Class And Objects](/docs/class/01%20classAndObjects.md)<br>
   [02. Field Initialization,Instance and Static Block.md](docs/class/02%20Field%20Initialization,%20Instance%20and%20Static%20Block.md)<br>
   [03. Inheritance](docs/class/03%20Inheritance.md)<br>
@@ -50,18 +54,26 @@
   [18. Java: call by value not call by reference](/docs/class/18%20java%20call%20by%20value%20not%20call%20by%20reference.md)<br>
   [19. AutoBoxCache](/docs/class/19.%20AutoBoxCache.md)<br>
   [20. Exceptions](/docs/class/20.%20Exception.md)<br>
+</details>
+<br>
+<details>
+<summary> Annotations </summary>
 
-
-- Annotations<br>
   [01. Introduction](docs/Annotations/01.%20Annotations.md)<br>
   [02. Annotations with Reflection](docs/Annotations/02.%20Annotations%20with%20Reflection.md)<br>
   [03. Default Values for Annotations](docs/Annotations/03.%20Default%20Values%20for%20Annotations.md)<br>
   [04. Marker Annotations](docs/Annotations/04.%20Marker%20Annotation.md)<br>
   [05. Single Member Annotations](docs/Annotations/05.%20Single%20Member%20Annotation.md)<br>
   [06. Repeating Annotations](docs/Annotations/06.%20Repeating%20Annotations.md)<br>
+</details>
+<br>
+<details>
+<summary> Collections </summary>
 
+</details>
+<br>
+<details>
+<summary> Generics </summary>
 
-- Generics<br>
-
-- Collections<br>
+</details>
 
