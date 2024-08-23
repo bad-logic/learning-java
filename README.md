@@ -70,6 +70,9 @@
 <details>
 <summary> Collections </summary>
 
+  [01. Collections](docs/collections/01.%20Collections.md)<br>
+  [02. Iterating through lists](docs/collections/02.%20Iterating%20through%20lists.md)<br>
+  [03. Comparable and Comparator interface](docs/collections/03.%20Comparable%20and%20Comparator%20Interface.md)<br>
 </details>
 <br>
 <details>
