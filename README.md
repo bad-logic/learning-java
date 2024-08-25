@@ -76,8 +76,55 @@
   [04. Maps](docs/collections/04.%20Maps.md)<br>
 </details>
 <br>
+
+<details>
+<summary> Functional Programming </summary>
+
+  [01. Functional Interface](/docs/functional%20programming/01.%20Functional%20Programming.md)<br>
+  [02. Lambdas](/docs/functional%20programming/02.%20Lambdas.md)<br>
+
+</details>
+<br>
+
 <details>
 <summary> Generics </summary>
 
 </details>
+<br>
+
+<details>
+<summary> Modern Features </summary>
+
+</details>
+<br>
+
+<details>
+<summary> MultiThreading & Parallel Programming </summary>
+
+</details>
+<br>
+
+<details>
+<summary> Concurrent Programming </summary>
+
+</details>
+<br>
+
+<details>
+<summary> Async Programming </summary>
+
+</details>
+<br>
+
+<details>
+<summary> NIO </summary>
+
+</details>
+<br>
+
+<details>
+<summary> Networking </summary>
+
+</details>
+<br>
 
