@@ -102,7 +102,7 @@ public class Outer{
     static private class Inner{
         private String greet = "Hello, Welcome";
         private int value = 9;
-         private static int value1 = Outer.count + 5;
+        private static int value1 = Outer.count + 5;
 
 
         private void display(){
@@ -136,6 +136,41 @@ public class Outer{
 - Since they are designed to be accessed within the method body only, no access specifiers ( private, protected, etc) are used.
 - they have direct access to the members of the enclosing class as well as the local variables and parameter of the method.
 
+```java
+
+class Person {
+  public String name;
+  public Double salary;
+
+  public Person(String name, Double salary) {
+    this.name = name;
+    this.salary = salary;
+  }
+  
+}
+
+class Main {
+  public static void main(String[] args) {
+
+    // Local Inner Class
+    class NameComparator implements Comparator<Person> {
+      @override
+      public int compare(Person p1, Person p2) {
+        return p1.name.compareTo(p2.name);
+      }
+    }
+
+    Person[] persons = new Person[]{
+            new Person("john", 23998.88),
+            new Person("sam", 45678.33)
+    };
+
+    Arrays.sort(persons, NameComparator());
+    
+  }
+
+}
+```
 
 #### Anonymous inner class
 - It is a kind of inner class that is defined – without a name – and instantiated in a single block of code.
@@ -143,21 +178,37 @@ public class Outer{
 
 ```java
 
+
 public class Test{
 
     public static void main(String[] args){
+        Person[] persons = new Person[] {
+                new Person("john",23998.88),
+                new Person("sam",45678.33)
+        };
+  
+        // using anonymous inner class to sort
+        Arrays.sort(persons,new Comparator<Person>(){
+          @override
+          public int compare(Person p1, Person p2){
+            return p1.name.compareTo(p2.name);
+          }
+        });
+
+        // using lambda expressions
+        // Comparator interface has a single abstract method a.k.a functional interface
+        // which can be replaced with lambda expressions like so
+        Arrays.sort(persons,(p1, p2)-> p1.name.compareTo(p2.name));
+      
         // using anonymous class inherited from ArrayList
         List<Integer> inlist = new ArrayList<Integer>(){
-            {
-
-                add(7);
-                add(8);
-                add(90);
-            }
+          {
+            add(7);
+            add(8);
+            add(90);
+          }
         };
-
         System.out.println(inlist);
-
     }
 }
 
