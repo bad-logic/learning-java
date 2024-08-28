@@ -82,6 +82,7 @@
 
   [01. Functional Interface](/docs/functional%20programming/01.%20Functional%20Programming.md)<br>
   [02. Lambdas](/docs/functional%20programming/02.%20Lambdas.md)<br>
+  [03. Streams API](/docs/functional%20programming/03.%20Streams%20API.md)<br>
 
 </details>
 <br>
