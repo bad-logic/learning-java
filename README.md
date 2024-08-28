@@ -90,6 +90,7 @@
 <details>
 <summary> Generics </summary>
 
+
 </details>
 <br>
 
