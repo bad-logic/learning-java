@@ -90,6 +90,7 @@
 <details>
 <summary> Generics </summary>
 
+  [01. Generics](/docs/Generics/01.%20Introduction.md)<br>
 
 </details>
 <br>
