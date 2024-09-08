@@ -98,6 +98,11 @@
 <details>
 <summary> Modern Features </summary>
 
+  [01. Switch Case](/docs/modern%20features/01.%20Switch.md)<br>
+  [02. Text Blocks](/docs/modern%20features/02.%20Text%20Blocks.md)<br>
+  [03. Records](/docs/modern%20features/03.%20Records.md)<br>
+  [04. Pattern Matching](/docs/modern%20features/04.%20Pattern%20Matching.md)<br>
+  [05. Sealed Classes and Interface](/docs/modern%20features/05.%20Sealed%20Classes%20and%20Interface.md)<br>
 </details>
 <br>
 
