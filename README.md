@@ -107,7 +107,7 @@
 <br>
 
 <details>
-<summary> MultiThreading & Parallel Programming </summary>
+<summary> MultiThreading </summary>
   
   [01. Threads Introduction](/docs/threads/01.%20Threads.md)<br>
   [02. Thread liveliness](docs/threads/02.%20isAlive()%20and%20join().md)<br>
