@@ -115,6 +115,8 @@
   [04. Interthread Communication](docs/threads/04.%20Interthread%20Communication.md)<br>
   [05. Deadlock](docs/threads/05.%20DeadLock.md)<br>
   [06. Thread State](docs/threads/06.%20Thread%20State.md)<br>
+  [07. Transient and volatile modifiers](/docs/threads/07.%20Transient%20and%20Volatile%20modifiers.md)<br>
+
 </details>
 <br>
 
