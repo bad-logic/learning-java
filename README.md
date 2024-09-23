@@ -121,7 +121,19 @@
 <br>
 
 <details>
-<summary> Concurrent Programming </summary>
+<summary> Concurrent & Parallel Programming </summary>
+
+  [01. Synchronizers](docs/concurrent/01.%20synchronizers/01.%20Synchronizers.md)<br>
+  [02. Semaphore](docs/concurrent/01.%20synchronizers/02.%20Semaphore.md)<br>
+  [03. CountDownLatch](docs/concurrent/01.%20synchronizers/03.%20CountDownLatch.md)<br>
+  [04. CyclicBarrier](docs/concurrent/01.%20synchronizers/04.%20CyclicBarrier.md)<br>
+  [05. Exchanger](docs/concurrent/01.%20synchronizers/05.%20Exchanger.md)<br>
+  [06. Phaser](docs/concurrent/01.%20synchronizers/06.%20Phaser.md)<br>
+  [07. Executors](docs/concurrent/02.%20Executors.md)<br>
+  [08. Callable and Future](docs/concurrent/03.%20Callable%20and%20Future.md)<br>
+  [09. Locks](docs/concurrent/04.%20Locks.md)<br>
+  [10. Atomic Operations](docs/concurrent/05.%20Atomic%20Operations.md)<br>
+  [11. Fork Join Frameworks](docs/concurrent/06.%20Fork%20Join%20Framework.md)<br>
 
 </details>
 <br>
