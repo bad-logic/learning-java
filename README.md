@@ -139,18 +139,6 @@
 <br>
 
 <details>
-<summary> Input/Output </summary>
-
-</details>
-<br>
-
-<details>
-<summary> NIO </summary>
-
-</details>
-<br>
-
-<details>
 <summary> Networking </summary>
 
 </details>
