@@ -138,9 +138,3 @@
 </details>
 <br>
 
-<details>
-<summary> Networking </summary>
-
-</details>
-<br>
-
