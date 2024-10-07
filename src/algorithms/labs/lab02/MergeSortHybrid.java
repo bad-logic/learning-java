@@ -89,20 +89,6 @@ public class MergeSortHybrid {
         return newArray;
     }
 
-    public static int[] insertionSort(int[] arr,int s, int e){
-//        System.out.println("insertion sort triggerred");
-        for(int i=s+1 ; i<=e ; i++){
-            int j = i;
-            int temp = arr[j];
-            while(j > s && arr[j-1] > temp){
-                arr[j] = arr[j-1];
-                j--;
-            }
-            arr[j] = temp;
-        }
-        return arr;
-    }
-
     public static int[] merge(int[] arr, int s, int m, int e){
 
         int arrayALength = m - s + 1;
@@ -138,7 +124,7 @@ public class MergeSortHybrid {
 
     public static int[] mergeSortPlus(int[] arr,int s,int e){
         if(s==e) return arr;
-        if(e-s+1 <= 20) return insertionSort(arr,s,e);
+        if(e-s+1 <= 20) return InsertionSort.insertionSort(arr,s,e);
         int m = (s+e)/2;
         mergeSortPlus(arr,s,m);
         mergeSortPlus(arr,m+1,e);
@@ -168,7 +154,7 @@ public class MergeSortHybrid {
         System.out.println("INSERTION SORT VERSION");
         var start = System.nanoTime();
         for( int[] arr: arrs){
-            insertionSort(arr,0,arr.length - 1);
+            InsertionSort.insertionSort(arr,0,arr.length - 1);
         }
         var end = System.nanoTime();
         System.out.println("time taken to execute: "+ ((end - start)/1000000) + "ms");
