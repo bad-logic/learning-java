@@ -1,0 +1,54 @@
+Algorithm SubsetList(list,subset,arr,i)
+    Input: result list, subset is current subset, arr original elements , i current index
+    Output: list containing subsets of arr
+
+    if i>arr.length then
+        return list
+    if i==arr.length then
+        list.add(new List(subset))
+        return list
+
+    SubsetList(list,subset,arr,i+1)
+    subset.add(arr[i])
+    SubsetList(list,subset,arr,i+1)
+    subset.removeLast()
+    return list
+
+/*
+*
+* Time complexity => O(n * 2^n)
+*
+*/
+Algorithm powerSets(arr)
+    Input: arr containing list of items
+    Output: List of list of subsets of arr
+    return SubsetList(new List(), new List(), arr, 0)
+
+Algorithm computeEndpoints(edge)
+    Input: edge of a graph
+    Output: List of the vertices of the edge
+
+Algorithm belongsTo(vertices,set)
+    Input: two lists of vertices
+    Output: true if at least one of the item in vertices is in set
+
+/*
+*
+* Time complexity => O(n * 2^n) + (2^n * k) ; n is # of vertices and k is # of edges
+*
+*/
+Algorithm smallestVertexCover(v,e)
+    Input: v-> set of vertices, e -> set of edges
+    Output: smallest vertex cover
+
+    smallestVertexCover <- v;
+    powerSet <- powerSets(v)
+    for set in powerSet do
+        isSVC <- true
+        for edge in e do
+            vertices <- computeEndpoints(edge)
+            isSVC <- isSVC && belongsTo(vertices,set)
+        if isSVC then
+            if set.length < smallestVertexCover.length then
+                smallestVertexCover = set
+    return smallestVertexCover
