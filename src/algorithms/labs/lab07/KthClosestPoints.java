@@ -1,5 +1,8 @@
 package algorithms.labs.lab07;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.PriorityQueue;
 
 
@@ -34,6 +37,7 @@ class KthClosestPoints {
             this.distance = (Math.pow(point[0],2) + Math.pow(point[1],2));
         }
 
+
         public int compareTo(Node obj){
             return Double.compare(this.distance, obj.distance);
         }
@@ -42,7 +46,6 @@ class KthClosestPoints {
     PriorityQueue<Node> maxHeap = new PriorityQueue<Node>();
 
     public int[][] kClosest(int[][] points, int k) {
-
         for(int[] arr: points){
             maxHeap.add(new Node(arr));
         }

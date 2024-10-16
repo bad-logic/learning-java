@@ -7,6 +7,7 @@ package algorithms.labs.lab08;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class KnapsackProblem {
@@ -17,7 +18,6 @@ public class KnapsackProblem {
             result.add(new ArrayList<>(subset));
             // do not return, because we can still find the other combinations
         }
-
         if(currIndex == s.length){
             return result;
         }
