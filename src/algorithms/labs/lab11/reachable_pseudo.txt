@@ -1,0 +1,33 @@
+Algorithm: IsReachableFrom(G, u, v)
+    Input: A directed graph G, vertices u, v in G
+    Output: TRUE if there is a directed path from u to v in G, false otherwise.
+
+    inlist <- hashMap()
+    outlist <- hashMap()
+
+    for (v1,v2) in G do
+        inlist.getOrDefault(v1, new list()).add(v2);
+        outlist.getOrDefault(v2, new list()).add(v1);
+
+    startinglist <- new Stack();
+    startinglist.push(u);
+    visited <- new set()
+
+    while !stack.isEmpty() do
+        p <- stack.peek()
+        if(p==u) return true;
+        if p in visited then
+            stack.pop()
+        else
+            visited.push(p)
+            for item in outlist.get(p) then
+                if item not in visited then
+                    stack.push(item)
+    return false;
+
+Time Complexity: O(m);  where m is the outlist of given starting vertex u
+Spcae complexity: O(1)
+
+
+
+
