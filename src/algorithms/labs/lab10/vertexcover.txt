@@ -1,3 +1,9 @@
+/*
+*
+*   Time complexity: O(2^n) * O(n)
+*   2^n choices and on each choice copying the array takes O(k) where k ranges from 0 - n
+*   on average size of subset is O((0+n)/2) -> O(n)
+*/
 Algorithm SubsetList(list,subset,arr,i)
     Input: result list, subset is current subset, arr original elements , i current index
     Output: list containing subsets of arr
