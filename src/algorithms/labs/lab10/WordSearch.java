@@ -22,36 +22,35 @@ package algorithms.labs.lab10;
  *
  */
 public class WordSearch {
-    private static boolean backtrack(char[][] board, String word, int i,int j, int strIndex){
-        if(strIndex >= word.length()) return true;
+    private static boolean backtrack(char[][] board, String word, int i,int j, int strIndex, boolean[][] visited){
+        if(strIndex == word.length()) return true;
 
         if(i<0||j<0||i>=board.length||j>=board[i].length){
             return false;
         }
-        if(board[i][j]!=word.charAt(strIndex)){
+        if(board[i][j]!=word.charAt(strIndex) || visited[i][j]){
             return false;
         }
 
-        char temp = board[i][j];
-        board[i][j] = '*';
+        visited[i][j] = true;
         if(
-            backtrack(board,word,i+1,j,strIndex+1)||
-            backtrack(board,word,i-1,j,strIndex+1)||
-            backtrack(board,word,i,j+1,strIndex+1)||
-            backtrack(board,word,i,j-1,strIndex+1)
+            backtrack(board,word,i+1,j,strIndex+1,visited)||
+            backtrack(board,word,i-1,j,strIndex+1,visited)||
+            backtrack(board,word,i,j+1,strIndex+1,visited)||
+            backtrack(board,word,i,j-1,strIndex+1,visited)
         ){
             return true;
         };
-
-        board[i][j] = temp;
+        visited[i][j] = false;
         return false;
     }
 
     public static boolean exist(char[][] board, String word) {
+        boolean[][] visited = new boolean[board.length][board[0].length];
 
         for(int i=0;i<board.length;i++){
             for(int j=0;j<board[i].length;j++){
-                if(backtrack(board,word,i,j,0)){
+                if(backtrack(board,word,i,j,0,visited)){
                     return true;
                 }
             }
