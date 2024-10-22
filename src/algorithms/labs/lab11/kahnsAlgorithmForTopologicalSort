@@ -1,0 +1,34 @@
+Algorithm AdjacencyList
+    Input: Graph G(V,E)
+    Output: Adjacency List of the vertices
+
+Algorithm InDegreeList
+    Input: Graph G(V,E)
+    Output: indegree list of vertices
+
+
+Algorithm TopologicalSort
+
+    Input: Graph G(V,E), a directed graph
+    Output: Topologically Sorted array or empty array if not possible to sort
+
+    indegree <- InDegreeList(G)
+    adjList <- AdjacencyList(G)
+    q <- new
+    r <- new
+    for nodes in indegree do
+        if degree of node is zero then
+            q.add(node)
+    while q is not empty do
+        node <- q.remove()
+        r.add(node)
+        for n in adjList(node) do
+            indegree[n]--
+            if indegree[n]=0 then
+                q.add(n)
+    if V.size() != r.size() return []
+    return r
+
+
+
+
