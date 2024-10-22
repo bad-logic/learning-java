@@ -6,27 +6,32 @@ Algorithm: IsReachableFrom(G, u, v)
     outlist <- hashMap()
 
     for (v1,v2) in G do
-        inlist.getOrDefault(v1, new list()).add(v2);
-        outlist.getOrDefault(v2, new list()).add(v1);
+        inlist.getOrDefault(v1, new list()).add(v2)
+        outlist.getOrDefault(v2, new list()).add(v1)
 
-    startinglist <- new Stack();
-    startinglist.push(u);
+    startinglist <- new Stack()
+    startinglist.push(u)
     visited <- new set()
 
-    while !stack.isEmpty() do
-        p <- stack.peek()
-        if(p==u) return true;
+    while !startinglist.isEmpty() do
+        p <- startinglist.peek()
+        if(p==v) return true;
         if p in visited then
-            stack.pop()
+            startinglist.pop()
         else
-            visited.push(p)
+            visited.add(p)
             for item in outlist.get(p) then
                 if item not in visited then
-                    stack.push(item)
+                    startinglist.push(item)
     return false;
 
-Time Complexity: O(m);  where m is the outlist of given starting vertex u
-Spcae complexity: O(1)
+Time Complexity: O(m + n)
+- for inlist and outlist generation O(m) ; m is number of edges
+- for while loop at worst case we visit all the vertices once O(n); n is the number of vertices
+Space complexity: O(n) + O(n) + O(m) + O(m) -> O(m + n)
+- at worst case set will contain all vertices -> O(n) ; n is the number of vertices
+- at worst case stack will contain all vertices -> O(n) ; n is the number of vertices
+- inlist and outlist -> O(m) + O (m)
 
 
 
