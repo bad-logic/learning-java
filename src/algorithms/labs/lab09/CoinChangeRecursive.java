@@ -27,16 +27,15 @@ public class CoinChangeRecursive {
         if(amount==0){
             return 0;
         }
-        if(amount < 0){
-            return -1;
-        }
 
         int minCost = Integer.MAX_VALUE;
 
         for (int coin : coins) {
-            int cost = countMinimumCoinsRequiredToReachTargetRecursive(coins, amount - coin);
-            if (cost != -1 && cost < minCost) {
-                minCost = cost;
+            if(amount-coin >= 0){
+                int cost = countMinimumCoinsRequiredToReachTargetRecursive(coins, amount - coin);
+                if (cost != -1 && cost < minCost) {
+                    minCost = cost;
+                }
             }
         }
 

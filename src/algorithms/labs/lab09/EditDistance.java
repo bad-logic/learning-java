@@ -124,35 +124,39 @@ public class EditDistance {
         return editDistanceDPArrays(table,word1,word2,word1.length()-1,word2.length()-1);
     }
 
-//    public static int editDistanceDPArraysIterative(String word1,String word2){
-//        int[][] table = new int[word1.length()+1][word2.length()+1];
-//
-//        for(int i=0;i<word1.length();i++){
-//            table[0][i] = i;
-//        }
-//
-//        for(int i=0;i<word2.length();i++){
-//            table[i][0] = i;
-//        }
-//
-//        int count = 0;
-//        for(int i=1;i<word1.length();i++){
-//            for(int j=1;j<word2.length();j++){
-//                if(word1.charAt(i-1) == word2.charAt(j-1)){
-//                    table[i][j] =
-//                }
-//            }
-//        }
+    public static int editDistanceDPArraysIterative(String word1,String word2){
+        int[][] table = new int[word1.length()+1][word2.length()+1];
 
-//        return count;
-//    }
+        for(int i=0;i<=word1.length();i++){
+            table[i][0] = i;
+        }
+
+        for(int i=0;i<=word2.length();i++){
+            table[0][i] = i;
+        }
+
+
+        for(int i=1;i<=word1.length();i++){
+            for(int j=1;j<=word2.length();j++){
+                if(word1.charAt(i-1) == word2.charAt(j-1)){
+                    table[i][j] = table[i-1][j-1];
+                }else{
+                    table[i][j] = getMinimum(new int[]{table[i-1][j-1],table[i-1][j],table[i][j-1]}) + 1;
+                }
+            }
+        }
+
+        return table[word1.length()][word2.length()];
+    }
 
 
 
     public static void main(String[] args){
-        System.out.println(editDistanceDPHashMap("maple","kale")); // 2
-        System.out.println(editDistanceDPHashMap("horse","ros")); // 3
-        System.out.println(editDistanceDPHashMap("intention","execution")); // 5
-        System.out.println(editDistanceDPHashMap("dinitrophenylhydrazine","benzalphenylhydrazone")); // 7
+        System.out.println(editDistanceDPArraysIterative("maple","kale")); // 2
+        System.out.println(editDistanceDPArraysIterative("horse","ros")); // 3
+        System.out.println(editDistanceDPArraysIterative("intention","execution")); // 5
+        System.out.println(editDistanceDPArraysIterative("dinitrophenylhydrazine","benzalphenylhydrazone")); // 7
+        System.out.println(editDistanceDPArraysIterative("hello","hola")); // 3
+        System.out.println(editDistanceDPArraysIterative("hello","hello")); // 0
     }
 }
