@@ -1,0 +1,19 @@
+Input: A simple connected undirected weighted graph G with non negative edge
+weights, determined by a weight function wt (x,y ), and a starting vertex s of G .
+
+Output: Array A of distances d(s,v) from s to v, for each v in V, so A[v] = d(s,v)
+for each v
+
+Aux Output: Array B with property that B[v] is a shortest path from s to v.
+
+The Algorithm:
+    A [s ] <-- 0. B [s ] <-- empty path (empty set)
+    X <-- {s} //Basis step
+    while X != V do
+        { POOL <-- {(v,w) in E | v in X and w not in X} }
+        (v’,w’) <-- search POOL for edge (v,w) for which A[v] + wt(v,w) is minimal
+        add w’ to X
+        A[w’] <-- A[v’] + wt(v’,w’)
+        B[w’] <-- B[v’] U {(v’,w’)}
+
+
