@@ -1,6 +1,6 @@
-HELP.md
+pdf-core/HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
+!pdf-core/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
