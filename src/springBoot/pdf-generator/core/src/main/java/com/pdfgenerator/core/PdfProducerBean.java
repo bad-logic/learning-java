@@ -1,8 +1,7 @@
-package org.example.pdfgenerator;
+package com.pdfgenerator.core;
 
-import org.example.templates.DefaultPdfTemplate;
+import com.pdfgenerator.templates.PdfTemplate;
 import org.springframework.stereotype.Component;
-import org.example.pdfgenerator.template.PdfTemplate;
 
 import java.util.Map;
 
