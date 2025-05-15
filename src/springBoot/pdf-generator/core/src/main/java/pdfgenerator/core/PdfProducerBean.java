@@ -1,12 +1,19 @@
-package com.pdfgenerator.core;
+package pdfgenerator.core;
 
-import com.pdfgenerator.templates.PdfTemplate;
+import pdfgenerator.core.registry.PdfRegistryBean;
+import pdfgenerator.templates.PdfTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Component
 public class PdfProducerBean {
+
+    private final PdfRegistryBean registry;
+
+    public PdfProducerBean(PdfRegistryBean bean){
+        this.registry = bean;
+    }
 
     public byte[] generatePdfDocument(String templateName, Map<String,Object> data){
         PdfTemplate template = findTemplate(templateName);
@@ -19,7 +26,7 @@ public class PdfProducerBean {
     }
 
     private PdfTemplate findTemplate(String templateName) {
-        return new DefaultPdfTemplate();
+        return registry.findTemplate(templateName);
     }
 
 }

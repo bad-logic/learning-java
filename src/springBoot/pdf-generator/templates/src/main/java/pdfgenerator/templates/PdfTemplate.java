@@ -1,4 +1,4 @@
-package com.pdfgenerator.templates;
+package pdfgenerator.templates;
 
 import java.util.Map;
 

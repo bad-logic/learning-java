@@ -1,7 +1,7 @@
-package com.pdfgenerator.core.registry;
+package pdfgenerator.core.registry;
 
-import com.pdfgenerator.templates.PdfTemplate;
-import com.pdfgenerator.templates.PdfTemplateComponent;
+import pdfgenerator.templates.PdfTemplate;
+import pdfgenerator.templates.PdfTemplateComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
