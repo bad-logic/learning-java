@@ -5,9 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import pdfgenerator.templates.PdfTemplateComponent;
 
+/**
+ * The type Pdf template registration configuration.
+ */
 @Configuration
 @ComponentScan(
-        basePackages = "pdfgenerator.templates",
+        basePackages = "pdfgenerator.pdftemplates",
         useDefaultFilters = false,
         excludeFilters = @ComponentScan.Filter(
                 type = FilterType.CUSTOM,
