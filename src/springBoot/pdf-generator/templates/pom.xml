@@ -10,6 +10,13 @@
 
     <artifactId>templates</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+    </dependencies>
+
     <properties>
         <java.version>21</java.version>
     </properties>
