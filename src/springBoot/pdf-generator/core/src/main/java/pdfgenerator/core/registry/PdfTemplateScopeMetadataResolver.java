@@ -6,6 +6,9 @@ import org.springframework.context.annotation.ScopeMetadata;
 import org.springframework.context.annotation.ScopeMetadataResolver;
 import pdfgenerator.templates.PdfTemplateComponent;
 
+/**
+ * The type Pdf template scope metadata resolver.
+ */
 public class PdfTemplateScopeMetadataResolver implements ScopeMetadataResolver {
     @Override
     public ScopeMetadata resolveScopeMetadata(BeanDefinition definition) {

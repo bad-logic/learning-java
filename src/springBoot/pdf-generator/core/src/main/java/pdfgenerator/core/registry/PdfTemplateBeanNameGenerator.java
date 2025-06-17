@@ -6,6 +6,9 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import pdfgenerator.templates.PdfTemplateComponent;
 
+/**
+ * The type Pdf template bean name generator.
+ */
 public class PdfTemplateBeanNameGenerator implements BeanNameGenerator {
 
     @Override

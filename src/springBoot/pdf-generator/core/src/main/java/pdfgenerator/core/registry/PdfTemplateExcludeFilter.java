@@ -7,6 +7,9 @@ import pdfgenerator.templates.PdfTemplate;
 
 import java.io.IOException;
 
+/**
+ * The type Pdf template exclude filter.
+ */
 public class PdfTemplateExcludeFilter implements TypeFilter {
 
     @Override
