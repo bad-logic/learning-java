@@ -14,6 +14,9 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * The type Pdffer error controller.
+ */
 @Controller
 public class PdfferErrorController implements ErrorController {
 
@@ -23,16 +26,22 @@ public class PdfferErrorController implements ErrorController {
 
     private static String htmlTemplateAsString(Resource resource, HttpServletRequest request){
         try(Reader reader = new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8)) {
-            Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
+            Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code") ;
             Exception exc = (Exception) request.getAttribute("javax.servlet.error.exception");
             return FileCopyUtils.copyToString(reader)
-                    .replace("{{status}}", statusCode.toString())
+                    .replace("{{status}}", statusCode!= null ? statusCode.toString() : "500")
                     .replace("{{exception}}", exc!=null ? exc.getMessage() : "-");
         }catch (IOException e){
             throw new IllegalArgumentException(e);
         }
     }
 
+    /**
+     * Handle error string.
+     *
+     * @param req the req
+     * @return the string
+     */
     @RequestMapping("/error")
     @ResponseBody
     public String handleError(HttpServletRequest req){

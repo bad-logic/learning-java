@@ -1,7 +1,8 @@
 package pdfgenerator.explorer.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ import java.util.Map;
 import static org.springframework.http.MediaType.APPLICATION_PDF_VALUE;
 import static org.springframework.http.MediaType.TEXT_HTML_VALUE;
 
+/**
+ * The type Pdffer explorer controller.
+ */
 @Controller
 @RequestMapping("explorer")
 public class PdfferExplorerController {
@@ -31,7 +35,16 @@ public class PdfferExplorerController {
     private final PdfProducerBean pdffer;
     private final PdfRegistryBean registry;
 
-    public PdfferExplorerController(ObjectMapper mapper,PdfProducerBean pdffer,PdfRegistryBean registry){
+    private static final Logger logger = LoggerFactory.getLogger(PdfferExplorerController.class);
+
+    /**
+     * Instantiates a new Pdffer explorer controller.
+     *
+     * @param mapper   the mapper
+     * @param pdffer   the pdffer
+     * @param registry the registry
+     */
+    public PdfferExplorerController(ObjectMapper mapper, PdfProducerBean pdffer, PdfRegistryBean registry){
         this.mapper = mapper;
         this.pdffer = pdffer;
         this.registry = registry;
@@ -53,15 +66,28 @@ public class PdfferExplorerController {
         }
     }
 
+    /**
+     * Download form string.
+     *
+     * @return the string
+     */
     @GetMapping(value = "download", produces = TEXT_HTML_VALUE)
     @ResponseBody
     public String downloadForm(){
         return htmlTemplateAsString(downloadHtmlTemplate);
     }
 
+    /**
+     * Process download form byte [ ].
+     *
+     * @param template the template
+     * @param payload  the payload
+     * @return the byte [ ]
+     * @throws IOException the io exception
+     */
     @PostMapping(value="download",produces = APPLICATION_PDF_VALUE)
     @ResponseBody
-    public byte[] processDownloadForm(@RequestParam("pdfTemplate") String template, @RequestParam("pdfPayload") String payload) throws JsonProcessingException {
+    public byte[] processDownloadForm(@RequestParam("pdfTemplate") String template, @RequestParam("pdfPayload") String payload) throws IOException {
         Map<String,Object> pdfData = mapper.readValue(payload,((Class<Map<String,Object>>)(Class<?>) Map.class));
         return pdffer.generatePdfDocument(template,pdfData);
     }
