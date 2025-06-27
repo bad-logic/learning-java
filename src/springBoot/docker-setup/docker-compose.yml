@@ -1,0 +1,12 @@
+
+services:
+  server:
+    build:
+      context: .
+    image: spring-server
+    container_name: java-server
+    ports:
+      - 8080:8080
+    volumes:
+      - ./src/:/app/src/:ro
+      - ./pom.xml:/app/pom.xml:ro
