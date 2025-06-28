@@ -7,5 +7,6 @@ services:
     container_name: java-server
     ports:
       - 8080:8080
+      - 5005:5005
     volumes:
       - ./src/:/app/src/:ro

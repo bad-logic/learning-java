@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e # exit on any command failure
 
 WATCH_DIR="/app/src"
 BUILD_CMD="mvn compile"
@@ -19,7 +20,8 @@ done &
 WATCHER_PID=$!
 
 # Run spring boot application
-mvn spring-boot:run
+mvn spring-boot:run \
+    -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
 
 # Cleanup background watcher when the main process exits
 kill $WATCHER_PID 2>/dev/null
