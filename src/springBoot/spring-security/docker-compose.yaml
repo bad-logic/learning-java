@@ -1,0 +1,19 @@
+networks:
+  secure_network:
+    driver: bridge
+
+
+# USE ORACLE DATABASE
+
+services:
+  spring-security-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spring-security
+    container_name: spring-security-container
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    volumes:
+      - ./target/:/app/target/:ro
