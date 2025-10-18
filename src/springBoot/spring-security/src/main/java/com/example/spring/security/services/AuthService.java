@@ -6,16 +6,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class AuthService implements UserDetailsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthService.class);
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        LOGGER.info("load user by username");
+        LOGGER.info("loadUserByUsername");
         return new User("user","password","USER");
     }
 
